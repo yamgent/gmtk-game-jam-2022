@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobCleaningRobotRandomScenario : RandomScenario
+public class RobCleaningRobotRandomScenario : BaseScenario
 {
+    private int moneyToAdd = 0;
+    
     public override string GetTitle()
     {
         return "Rob Cleaning Robot";
@@ -17,9 +19,8 @@ public class RobCleaningRobotRandomScenario : RandomScenario
         };
     }
 
-    public override void PerformResult(int rolledNumber)
+    public override void PerformRollResult(int rolledNumber)
     {
-        int moneyToAdd = 0;
         if (rolledNumber <= 1)
         {
             moneyToAdd = 5;
@@ -32,7 +33,14 @@ public class RobCleaningRobotRandomScenario : RandomScenario
         {
             moneyToAdd = 5;
         }
-        resultText = "Successfully stole " + moneyToAdd + " gold!";
         //player money += moneyToAdd;
+    }
+
+    public override List<string> GetPostRollTextList(int rolledNumber)
+    {
+        return new List<string> {
+            "Successfully stole " + moneyToAdd + " gold!",
+            "Nice loot!"
+        };
     }
 }
