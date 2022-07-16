@@ -19,6 +19,10 @@ public class DialogueAnimation : MonoBehaviour
     private int indexWord = 0;
     private string previousWord;
 
+    private List<string> dialogueList;
+    private int currentTextIndex;
+    private bool dialgueAnimationCompleted;
+
     Coroutine coroutine;
 
     public void AnimateText(float startDelay, string text)
@@ -31,6 +35,43 @@ public class DialogueAnimation : MonoBehaviour
         splitMessage = text.Split(' ');
 
         coroutine = StartCoroutine(StartAnimation(startDelay));
+    }
+
+    public void SetDialogue(List<string> dialogueList) {
+        this.dialogueList = dialogueList;
+        currentTextIndex = 0;
+        dialgueAnimationCompleted = true;
+        Next();
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && dialogueList != null)
+        {
+            Next();
+        }
+    }
+
+    private void Next() 
+    {
+        if (dialgueAnimationCompleted) 
+        {
+            if (currentTextIndex < dialogueList.Count) 
+            {
+                dialgueAnimationCompleted = false;
+                AnimateText(0.2f, dialogueList[currentTextIndex]);
+                currentTextIndex++;
+            }
+            else
+            {
+                GameController.Instance.SwitchStoryAndScenario();
+            }
+        }
+        else 
+        {
+            Skip();
+        }
+        
     }
 
     private IEnumerator StartAnimation(float startDelay)
@@ -61,6 +102,7 @@ public class DialogueAnimation : MonoBehaviour
         displayedTextMesh.text = textToAnimate;
 
         // Event finished
+        dialgueAnimationCompleted = true;
         if (OnAnimatedTextCompleted != null)
         {
             OnAnimatedTextCompleted();
@@ -71,6 +113,6 @@ public class DialogueAnimation : MonoBehaviour
     {
         StopCoroutine(coroutine);
         displayedTextMesh.text = textToAnimate;
-        OnAnimatedTextCompleted();
+        dialgueAnimationCompleted = true;
     }
 }

@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
     public List<BaseStory> storyList;
-    public List<BaseScenario> scenarioList;
-    public bool isStoryScene;
     public int index;
+    public bool isStoryScenario;
+    public bool isStory;
 
     private void Awake()
     {
@@ -21,18 +22,28 @@ public class GameController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        isStoryScene = true;
         index = 0;
+        isStoryScenario = true;
+        isStory = true;
         storyList = new List<BaseStory> { new Story1() };
-        scenarioList = new List<BaseScenario> { new RobCleaningRobotRandomScenario() };
     }
 
-    public void setToScenario() {
-        isStoryScene = false;
+    public void SwitchStoryAndScenario() {
+        if (isStory) {
+            setToScenario();
+        } else {
+            setToStory();
+        }
+
+        isStory = !isStory;
     }
 
-    public void setToStory() {
-        isStoryScene = true;
+    private void setToScenario() {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    private void setToStory() {
         index++;
+        SceneManager.LoadScene("StoryScene");
     }
 }

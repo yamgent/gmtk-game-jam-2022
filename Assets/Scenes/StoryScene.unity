@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9787158a0a31840ba0cc9c18ee2d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePrefab: {fileID: 873764366}
+  dialogueAnimation: {fileID: 873764366}
 --- !u!4 &849014428
 Transform:
   m_ObjectHideFlags: 0
@@ -753,11 +753,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56aa9f107b3bd374eb4ffe7969a5983a, type: 3}
---- !u!1 &873764366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4202170967217531722, guid: 56aa9f107b3bd374eb4ffe7969a5983a, type: 3}
+--- !u!114 &873764366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4202170967217531724, guid: 56aa9f107b3bd374eb4ffe7969a5983a, type: 3}
   m_PrefabInstance: {fileID: 873764365}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f979aae16e9ad4287d6d8bc5933f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1111829287
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,8 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e81254089cdb374eb7688196e9ac210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStoryScene: 0
   index: 0
+  isStoryScenario: 0
 --- !u!4 &1111829289
 Transform:
   m_ObjectHideFlags: 0

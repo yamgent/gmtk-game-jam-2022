@@ -16,7 +16,7 @@ public abstract class BaseScenario
     // return in the format: Vector3Int(Gold, Health, Money)
     public abstract Vector3Int GetRollResult(int rolledNumber);
 
-    public abstract List<string> GetPostRollTextList(int rolledNumber);
+    public abstract List<string> GetPostRollTextList();
 
     public string GetTitle()
     {

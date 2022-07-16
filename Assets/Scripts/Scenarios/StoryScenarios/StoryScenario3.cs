@@ -61,7 +61,7 @@ public class StoryScenario3 : BaseScenario
         return new Vector3Int(moneyToAdd, 0, 0);
     }
 
-    public override List<string> GetPostRollTextList(int rolledNumber)
+    public override List<string> GetPostRollTextList()
     {
         return postRollTextList;
     }

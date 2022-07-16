@@ -36,7 +36,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
         return new Vector3Int(moneyToAdd, 0, 0);
     }
 
-    public override List<string> GetPostRollTextList(int rolledNumber)
+    public override List<string> GetPostRollTextList()
     {
         return new List<string> {
             "Successfully stole " + moneyToAdd + " gold!",

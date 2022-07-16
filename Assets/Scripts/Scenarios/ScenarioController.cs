@@ -10,6 +10,7 @@ public class ScenarioController : MonoBehaviour
     public ScenarioCard scenarioCard1;
     public ScenarioCard scenarioCard2;
     public ScenarioOverlay scenarioOverlay;
+    public DialogueAnimation dialogueAnimation;
 
     private BaseScenario currentScenario;
     private int currentTextIndex;
@@ -20,7 +21,15 @@ public class ScenarioController : MonoBehaviour
     public void Start()
     {
         IntializeScenarioCards();
-        LoadRandomScenario();
+        
+        if (GameController.Instance.isStoryScenario)
+        {
+            LoadStoryScenario();
+        }
+        else
+        {
+            LoadRandomScenario();
+        }
     }
 
     private void IntializeScenarioCards()
@@ -36,6 +45,8 @@ public class ScenarioController : MonoBehaviour
         scenarioStoryCard.Show();
         scenarioCard1.Hide();
         scenarioCard2.Hide();
+
+        GenerateNextStoryScenario();
     }
 
     private void LoadRandomScenario()
@@ -50,6 +61,7 @@ public class ScenarioController : MonoBehaviour
     private void GenerateNextStoryScenario()
     {
         // TODO
+        scenarioStoryCard.SetScenarioText(new StoryScenario1());
     }
 
     private void GenerateRandomScenario()
@@ -80,6 +92,7 @@ public class ScenarioController : MonoBehaviour
 
         Vector3Int result = scenario.GetRollResult(finalRoll);
         Debug.Log("[Roll: " + finalRoll + "] Gold += " + result.x + ", Health += " + result.y + ", Dice += " + result.z);
+        dialogueAnimation.SetDialogue(scenario.GetPostRollTextList());
     }
 
     /*public void StartScenario(BaseScenario scenario)
