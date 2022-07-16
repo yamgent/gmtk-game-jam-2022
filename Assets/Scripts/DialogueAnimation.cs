@@ -6,11 +6,11 @@ using TMPro;
 public class DialogueAnimation : MonoBehaviour
 {
     public delegate void AnimatedTextCompleted();
-    public static event AnimatedTextCompleted OnAnimatedTextCompleted;
+    public event AnimatedTextCompleted OnAnimatedTextCompleted;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI displayedTextMesh;
-    [SerializeField] private float delayBetweenWord = 0.1f;            
+    [SerializeField] private float delayBetweenWord = 0.5f;            
 
     private string textToAnimate;
     private string currentText;        
@@ -19,15 +19,18 @@ public class DialogueAnimation : MonoBehaviour
     private int indexWord = 0;
     private string previousWord;
 
+    Coroutine coroutine;
+
     public void AnimateText(float startDelay, string text)
     {
         textToAnimate = text;
 
         displayedTextMesh.text = "";
+        indexWord = 0;
 
         splitMessage = text.Split(' ');
 
-        StartCoroutine(StartAnimation(startDelay));
+        coroutine = StartCoroutine(StartAnimation(startDelay));
     }
 
     private IEnumerator StartAnimation(float startDelay)
@@ -62,5 +65,12 @@ public class DialogueAnimation : MonoBehaviour
         {
             OnAnimatedTextCompleted();
         }
+    }
+
+    public void Skip() 
+    {
+        StopCoroutine(coroutine);
+        displayedTextMesh.text = textToAnimate;
+        OnAnimatedTextCompleted();
     }
 }
