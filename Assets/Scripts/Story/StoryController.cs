@@ -11,7 +11,14 @@ public class StoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadStory(GameController.Instance.storyList[GameController.Instance.index]);
+        if (GameController.Instance.isStoryScenario)
+        {
+            LoadStory(GameController.Instance.storyList[GameController.Instance.index]);
+        }
+        else
+        {
+            LoadStory(new RandomStory());
+        }
     }
 
     public void LoadStory(BaseStory story) 

@@ -24,11 +24,13 @@ public class ScenarioController : MonoBehaviour
         
         if (GameController.Instance.isStoryScenario)
         {
-            LoadStoryScenario();
+            LoadStoryScenario(GameController.Instance.scenarioList[GameController.Instance.index]);
+            GameController.Instance.isStoryScenario = false;
         }
         else
         {
             LoadRandomScenario();
+            if (GameController.Instance.numRandomScenario <= 0) GameController.Instance.isStoryScenario = true;
         }
     }
 
@@ -40,13 +42,13 @@ public class ScenarioController : MonoBehaviour
         scenarioOverlay.SetScenarioController(this);
     }
 
-    private void LoadStoryScenario()
+    private void LoadStoryScenario(BaseScenario scenario)
     {
         scenarioStoryCard.Show();
         scenarioCard1.Hide();
         scenarioCard2.Hide();
 
-        GenerateNextStoryScenario();
+        scenarioStoryCard.SetScenarioText(scenario);
     }
 
     private void LoadRandomScenario()
@@ -56,12 +58,6 @@ public class ScenarioController : MonoBehaviour
         scenarioCard2.Show();
 
         GenerateRandomScenario();
-    }
-
-    private void GenerateNextStoryScenario()
-    {
-        // TODO
-        scenarioStoryCard.SetScenarioText(new StoryScenario1());
     }
 
     private void GenerateRandomScenario()
