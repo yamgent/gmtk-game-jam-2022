@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 1045625078}
   - component: {fileID: 1045625077}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: TargetRollText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 1113342003}
   - component: {fileID: 1113342002}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 1203040302}
   - component: {fileID: 1203040301}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,7 +1527,7 @@ GameObject:
   - component: {fileID: 1278698134}
   - component: {fileID: 1278698133}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: YourRollText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1872,7 +1872,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1362913397}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1612270336}
+        m_TargetAssemblyTypeName: ScenarioController, Assembly-CSharp
+        m_MethodName: HideScenarioOverlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1362913397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,13 +1932,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414973426}
+  - component: {fileID: 1414973427}
   m_Layer: 5
   m_Name: ScenarioOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1414973426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1954,6 +1967,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1414973427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414973425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1274fe9f633584487205ef00fe5f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRollText: {fileID: 1045625077}
+  yourRollText: {fileID: 1278698133}
+  resultText: {fileID: 1113342002}
 --- !u!1 &1577545392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2053,7 @@ MonoBehaviour:
   scenarioStoryCard: {fileID: 662607143}
   scenarioCard1: {fileID: 609015691}
   scenarioCard2: {fileID: 548132649}
+  scenarioOverlay: {fileID: 1414973427}
 --- !u!4 &1612270337
 Transform:
   m_ObjectHideFlags: 0
