@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+    public TMP_Text healthNumberText;
+    public TMP_Text diceNumberText;
+    public TMP_Text goldNumberText;
+
     // Constants set in Unity scene editor.
     public int initialHealth;
-    public int initialMoney;
+    public int initialDice;
+    public int initialGold;
     
-    private int maxHealth;
     private int health;
-    private int money;
+    private int dice;
+    private int gold;
 
     // Start is called before the first frame update
     void Start()
@@ -18,30 +24,45 @@ public class Player : MonoBehaviour
         Reset();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddHealth(int amount)
     {
-        
-    }
-
-    void Reset()
-    {
-        maxHealth = initialHealth;
-        health = initialHealth;
-        money = initialMoney;
-    }
-
-    void AddHealth(int amount)
-    {
-        health = Mathf.Max(Mathf.Min(health + amount, 0), maxHealth);
+        health = Mathf.Max(health + amount, 0);
         if (health == 0)
         {
             //scenarioManager#loseReasonZeroHealth
         }
+        UpdateResourcesUI();
     }
 
-    void AddMoney(int amount)
+    public void AddDice(int amount)
     {
-        money = Mathf.Min(money + amount, 0);
+        dice += amount;
+        if (dice < 0)
+        {
+            dice = 0;
+            //scenarioManager#loseReasonNegativeDice
+        }
+        UpdateResourcesUI();
+    }
+
+    public void AddGold(int amount)
+    {
+        gold = Mathf.Max(gold + amount, 0);
+        UpdateResourcesUI();
+    }
+
+    public void Reset()
+    {
+        health = initialHealth;
+        dice = initialDice;
+        gold = initialGold;
+        UpdateResourcesUI();
+    }
+
+    private void UpdateResourcesUI()
+    {
+        healthNumberText.text = health.ToString();
+        diceNumberText.text = dice.ToString();
+        goldNumberText.text = gold.ToString();
     }
 }

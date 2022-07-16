@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5006657814775981127}
   - component: {fileID: 5006657814775981124}
   m_Layer: 5
-  m_Name: MoneyNumber
+  m_Name: GoldNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5006657815154105691}
   - component: {fileID: 5006657815154105688}
   m_Layer: 5
-  m_Name: Money
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5006657816587618866}
   m_Layer: 5
-  m_Name: MoneyUI
+  m_Name: GoldUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

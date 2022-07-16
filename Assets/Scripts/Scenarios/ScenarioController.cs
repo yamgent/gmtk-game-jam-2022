@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScenarioController : MonoBehaviour
 {
-    public Text scenarioTextObject;
+    public Player player;
     public ScenarioCard scenarioStoryCard;
     public ScenarioCard scenarioCard1;
     public ScenarioCard scenarioCard2;
@@ -78,6 +78,7 @@ public class ScenarioController : MonoBehaviour
 
     public void ResolveScenario(BaseScenario scenario, int numDice)
     {
+        player.AddDice(-numDice);
         int finalRoll = 0;
         for (int i = 0; i < numDice; ++i)
         {
@@ -85,7 +86,11 @@ public class ScenarioController : MonoBehaviour
         }
 
         Vector3Int result = scenario.GetRollResult(finalRoll);
-        Debug.Log("[Roll: " + finalRoll + "] Gold += " + result.x + ", Health += " + result.y + ", Dice += " + result.z);
+        Debug.Log("[NumDice: " + numDice + ", Roll: " + finalRoll + "] Gold += " + result.x + ", Health += " + result.y + ", Dice += " + result.z);
+        player.AddGold(result.x);
+        player.AddHealth(result.y);
+        player.AddDice(result.z);
+
         dialogueAnimation.SetDialogue(scenario.GetPostRollTextList());
     }
 }
