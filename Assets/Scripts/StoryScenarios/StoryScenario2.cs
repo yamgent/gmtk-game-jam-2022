@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoryScenario2 : MonoBehaviour
+public class StoryScenario2 : BaseScenario
 {
     public override string GetTitle()
     {
@@ -51,5 +51,6 @@ public class StoryScenario2 : MonoBehaviour
             postRollTextList.Add("Took too much dice and alerted the guards. Dropped half of the stolen dice while escaping");
         }
         postRollTextList.Add("That was a good haul of dice. Could have been better, but still good. I should get out of here before the guards find me.");
+        return postRollTextList;
     }
 }
