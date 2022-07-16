@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 2262481402087859954}
   - component: {fileID: 2262481402087859953}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2262481402087859954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7719544614321683058}
+        m_TargetAssemblyTypeName: ScenarioCard, Assembly-CSharp
+        m_MethodName: TriggerScenario
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2262481402258442921
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2262481402258442922}
+  - component: {fileID: 7719544614321683058}
   m_Layer: 5
   m_Name: Scenario
   m_TagString: Untagged
@@ -370,6 +383,20 @@ RectTransform:
   m_AnchoredPosition: {x: -160, y: 60}
   m_SizeDelta: {x: 220, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7719544614321683058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262481402258442921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003fdd710c1450440a291db711b6993d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 2262481401762215114}
+  conditionText: {fileID: 2262481403039613840}
 --- !u!1 &2262481402864527196
 GameObject:
   m_ObjectHideFlags: 0

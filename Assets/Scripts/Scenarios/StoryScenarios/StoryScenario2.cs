@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class StoryScenario2 : BaseScenario
 {
-    public override string GetTitle()
-    {
-        return "Infiltrate the dice mines";
-    }
+    public override string title { get { return "Infiltrate the Dice Mines"; } }
+    public override string rewardsString { get { return "Gold"; } }
+    public override int lowRoll { get { return 0; } }
+    public override int minSuccess { get { return 4;} }
+    public override int maxSuccess { get { return 9; } }
+    public override int highRoll { get { return 9;} }
 
     public override List<string> GetPreRollTextList()
     {

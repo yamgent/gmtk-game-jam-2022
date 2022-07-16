@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RobCleaningRobotRandomScenario : BaseScenario
 {
+    public override string title { get { return "Rob Cleaning Robot"; } }
+    public override string rewardsString { get { return "Gold"; } }
+    public override int lowRoll { get { return 1; } }
+    public override int minSuccess { get { return 2;} }
+    public override int maxSuccess { get { return 5; } }
+    public override int highRoll { get { return 6;} }
+
     private int moneyToAdd = 0;
-    
-    public override string GetTitle()
-    {
-        return "Rob Cleaning Robot";
-    }
 
     public override List<string> GetPreRollTextList()
     {
