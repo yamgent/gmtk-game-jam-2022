@@ -23,11 +23,13 @@ public abstract class BaseScenario
         return title;
     }
 
-    public string GetConditionDescription()
+    public string GetSuccessCondition()
     {
-        return "Success Condition\n" +
-            minSuccess + " - " + maxSuccess + "\n\n" +
-            "Possible Rewards\n" +
-            rewardsString; 
+        return minSuccess + " - " + maxSuccess;
+    }
+
+    public string GetRewardType()
+    {
+        return rewardsString; 
     }
 }

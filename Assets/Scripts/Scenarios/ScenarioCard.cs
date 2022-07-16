@@ -7,6 +7,7 @@ public class ScenarioCard : MonoBehaviour
 {
     public TMP_Text titleText;
     public TMP_Text conditionText;
+    public TMP_Text rewardText;
 
     private ScenarioController parent;
     private BaseScenario scenario;
@@ -21,7 +22,8 @@ public class ScenarioCard : MonoBehaviour
         this.scenario = scenario;
 
         titleText.text = scenario.GetTitle();
-        conditionText.text = scenario.GetConditionDescription();
+        conditionText.text = scenario.GetSuccessCondition();
+        rewardText.text = scenario.GetRewardType();
     }
 
     public void TriggerScenario()
