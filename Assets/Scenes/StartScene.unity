@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 1636207090}
   - component: {fileID: 1636207089}
   m_Layer: 0
-  m_Name: GameControllerDestroyer
+  m_Name: ResetGameState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
