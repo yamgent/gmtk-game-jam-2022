@@ -13,14 +13,12 @@ public class StoryScenario2 : BaseScenario
 
     private int diceToAdd = 0;
 
-    public override List<string> GetPreRollTextList()
+    public override string GetDescription()
     {
-        return new List<string> {
-            "On a planet's Dice mines",
-            "In this world, dice provide power and luck to the user, enhancing their abilities.",
-            "Without any dice, no scenario will play out in your favour.",
-            "Sneak into the dice mines and steal the loot"
-        };
+        return "On a planet's Dice mines.\n" +
+            "In this world, dice provide power and luck to the user, enhancing their abilities. " +
+            "Without any dice, no scenario will play out in your favour.\n" +
+            "Sneak into the dice mines and steal the loot";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

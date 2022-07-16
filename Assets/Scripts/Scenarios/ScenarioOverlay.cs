@@ -25,8 +25,8 @@ public class ScenarioOverlay : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        title.text = scenario.title;
-        description.text = "placeholder";
+        title.text = scenario.GetTitle();
+        description.text = scenario.GetDescription();
 
         rollVisual.InitializeRollVisual(scenario);
         diceArea.ResetDice();

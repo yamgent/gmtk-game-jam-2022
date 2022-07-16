@@ -86,7 +86,7 @@ public class ScenarioController : MonoBehaviour
     {
         currentScenario = scenario;
         currentTextIndex = -1;
-        rollTextIndex = currentScenario.GetPreRollTextList().Count - 1;
+        rollTextIndex = currentScenario.GetDescription().Count - 1;
         lastTextIndex = 99999; // Will be updated after dice roll.
         rolledNumber = -1;
     }
@@ -96,7 +96,7 @@ public class ScenarioController : MonoBehaviour
         currentTextIndex++;
         if (currentTextIndex <= rollTextIndex)
         {
-            scenarioTextObject.text = currentScenario.GetPreRollTextList()[currentTextIndex];
+            scenarioTextObject.text = currentScenario.GetDescription()[currentTextIndex];
             if (currentTextIndex == rollTextIndex)
             {
                 // TODO: show "roll dice" button here.

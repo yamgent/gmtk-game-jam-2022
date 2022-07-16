@@ -11,7 +11,7 @@ public abstract class BaseScenario
     public abstract int maxSuccess { get; }
     public abstract int highRoll { get; }
 
-    public abstract List<string> GetPreRollTextList();
+    public abstract string GetDescription();
 
     // return in the format: Vector3Int(Gold, Health, Money)
     public abstract Vector3Int GetRollResult(int rolledNumber);

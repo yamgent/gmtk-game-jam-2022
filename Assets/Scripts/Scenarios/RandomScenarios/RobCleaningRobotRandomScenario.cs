@@ -13,12 +13,10 @@ public class RobCleaningRobotRandomScenario : BaseScenario
 
     private int moneyToAdd = 0;
 
-    public override List<string> GetPreRollTextList()
+    public override string GetDescription()
     {
-        return new List<string> {
-            "You encountered a cleaning robot.",
-            "No one's looking... Rob him!"
-        };
+        return "You encountered a cleaning robot.\n" +
+            "No one's looking... Rob him!";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
