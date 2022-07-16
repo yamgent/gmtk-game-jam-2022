@@ -5,18 +5,22 @@ using TMPro;
 
 public class ScenarioOverlay : MonoBehaviour
 {
-    public TMP_Text targetRollText;
-    public TMP_Text yourRollText;
-    public TMP_Text resultText;
+    public RollVisual rollVisual;
+    public DiceArea diceArea;
 
     public void Show(BaseScenario scenario)
     {
         gameObject.SetActive(true);
-        targetRollText.text = scenario.minSuccess + " - " + scenario.maxSuccess;
+        rollVisual.InitializeRollVisual(scenario);
 
         // TODO: Dice roll details
 
         // TODO: Get nicely parsed result string from BaseScenario
+    }
+
+    public void NumDiceChanged()
+    {
+        rollVisual.NumDiceChanged(diceArea.numDice);
     }
 
     public void Hide()

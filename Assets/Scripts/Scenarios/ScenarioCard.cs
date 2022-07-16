@@ -26,8 +26,6 @@ public class ScenarioCard : MonoBehaviour
 
     public void TriggerScenario()
     {
-        Debug.Log("Go Button Clicked");
-
         parent.ShowScenarioOverlay(scenario);
     }
 
