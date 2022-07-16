@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006657814775981124, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006657816587618866, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
       propertyPath: m_Pivot.x
