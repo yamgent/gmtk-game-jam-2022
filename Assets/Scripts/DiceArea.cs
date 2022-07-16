@@ -8,6 +8,12 @@ public class DiceArea : MonoBehaviour
     public TMP_Text numDiceText;
     public int maxDice = 4;
     public int numDice = 1;
+
+    public void ResetDice()
+    {
+        numDice = 1;
+        numDiceText.text = "" + numDice;
+    }
     
     public void IncreaseDice()
     {

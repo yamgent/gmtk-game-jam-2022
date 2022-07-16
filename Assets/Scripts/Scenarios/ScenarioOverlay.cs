@@ -5,13 +5,22 @@ using TMPro;
 
 public class ScenarioOverlay : MonoBehaviour
 {
+    public TMP_Text title;
+    public TMP_Text description;
+
     public RollVisual rollVisual;
     public DiceArea diceArea;
 
     public void Show(BaseScenario scenario)
     {
         gameObject.SetActive(true);
+
+        title.text = scenario.title;
+        description.text = "placeholder";
+
         rollVisual.InitializeRollVisual(scenario);
+        diceArea.ResetDice();
+        NumDiceChanged();
 
         // TODO: Dice roll details
 
@@ -20,7 +29,7 @@ public class ScenarioOverlay : MonoBehaviour
 
     public void NumDiceChanged()
     {
-        rollVisual.NumDiceChanged(diceArea.numDice);
+        rollVisual.UpdateRollVisual(diceArea.numDice);
     }
 
     public void Hide()

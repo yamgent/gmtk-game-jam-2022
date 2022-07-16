@@ -5,13 +5,12 @@ using UnityEngine;
 public class RollVisual : MonoBehaviour
 {
     public RollVisualBar bar;
-    public RollVisualBlock lowNumberBlock;
-    public RollVisualBlock minNumberBlock;
-    public RollVisualBlock maxNumberBlock;
-    public RollVisualBlock highNumberBlock;
+    public RollVisualBlock minRollBlock;
+    public RollVisualBlock maxRollBlock;
 
     private float maxValue;
     private float maxPosition;
+    private BaseScenario scenario;
     
     void Awake()
     {
@@ -21,17 +20,19 @@ public class RollVisual : MonoBehaviour
     public void InitializeRollVisual(BaseScenario scenario)
     {
         this.maxValue = Mathf.Ceil((scenario.highRoll * 1.0f) / 6) * 6;
-        
-        bar.SetValue(scenario.lowRoll, scenario.minSuccess, scenario.maxSuccess, scenario.highRoll, maxValue);
-        bar.SetOverlayBar(1, maxValue, maxPosition);
-        lowNumberBlock.SetValue(scenario.lowRoll, maxValue, maxPosition);
-        minNumberBlock.SetValue(scenario.minSuccess, maxValue, maxPosition);
-        maxNumberBlock.SetValue(scenario.maxSuccess, maxValue, maxPosition);
-        highNumberBlock.SetValue(scenario.highRoll, maxValue, maxPosition);
+        this.scenario = scenario;
+
+        bar.SetValue(scenario.lowRoll, scenario.minSuccess, scenario.maxSuccess, scenario.highRoll, 1, 6);
     }
 
-    public void NumDiceChanged(int numDice)
+    public void UpdateRollVisual(int numDice)
     {
-        bar.SetOverlayBar(numDice, maxValue, maxPosition);
+        int min = numDice;
+        int max = numDice * 6;
+
+        minRollBlock.SetValue(min);
+        maxRollBlock.SetValue(max);
+
+        bar.SetTargetValue(scenario.lowRoll, scenario.minSuccess, scenario.maxSuccess, scenario.highRoll, min, max);
     }
 }
