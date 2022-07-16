@@ -11,7 +11,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
     public override int maxSuccess { get { return 5; } }
     public override int highRoll { get { return 6;} }
 
-    private int moneyToAdd = 0;
+    private List<string> postRollTextList;
 
     public override string GetDescription()
     {
@@ -21,26 +21,49 @@ public class RobCleaningRobotRandomScenario : BaseScenario
 
     public override Vector3Int GetRollResult(int rolledNumber)
     {
-        if (rolledNumber <= 1)
+        postRollTextList = new List<string>();
+        int moneyToAdd = 0;
+
+        if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
             moneyToAdd = 5;
+
+            postRollTextList.Add("Successfully robbed the robot, taking some of its gold.");
         }
-        else if (rolledNumber <= 5)
+        else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
+        {
+            moneyToAdd = 5;
+
+            postRollTextList.Add("Successfully robbed the robot, taking some of its gold.");
+        }
+        else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
             moneyToAdd = 10;
+
+            postRollTextList.Add("Successfully robbed the robot, taking all of its gold.");
         }
-        else
+        else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
             moneyToAdd = 5;
+
+            postRollTextList.Add("Damaged the robot, causing it to drop all of its gold and sound an alarm.");
+            postRollTextList.Add("Quickly grabbed whatever gold you could and ran away.");
         }
+        else // Super High outcome
+        {
+            moneyToAdd = 5;
+
+            postRollTextList.Add("Damaged the robot, causing it to drop all of its gold and sound an alarm.");
+            postRollTextList.Add("Quickly grabbed whatever gold you could and ran away.");
+        }
+
+        postRollTextList.Add("Nice loot! Gained " + moneyToAdd + " gold.");
+
         return new Vector3Int(moneyToAdd, 0, 0);
     }
 
     public override List<string> GetPostRollTextList()
     {
-        return new List<string> {
-            "Successfully stole " + moneyToAdd + " gold!",
-            "Nice loot!"
-        };
+        return postRollTextList;
     }
 }

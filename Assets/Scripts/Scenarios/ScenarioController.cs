@@ -59,7 +59,7 @@ public class ScenarioController : MonoBehaviour
         // TODO: generate 2 random scenarios from 2 different categories
         // For now, hardcoded
         scenarioCard1.SetScenarioText(new RobCleaningRobotRandomScenario());
-        scenarioCard2.SetScenarioText(new StoryScenario2());
+        scenarioCard2.SetScenarioText(new RobFarmerRandomScenario());
     }
 
     public void ShowScenarioOverlay(BaseScenario scenario)

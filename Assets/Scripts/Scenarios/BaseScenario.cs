@@ -25,7 +25,7 @@ public abstract class BaseScenario
 
     public string GetSuccessCondition()
     {
-        return minSuccess + " - " + maxSuccess;
+        return minSuccess + " - " + (maxSuccess - 1);
     }
 
     public string GetRewardType()

@@ -6,10 +6,10 @@ public class StoryScenario3 : BaseScenario
 {
     public override string title { get { return "Defeat the Bandits"; } }
     public override string rewardsString { get { return "Gold"; } }
-    public override int lowRoll { get { return 0; } }
-    public override int minSuccess { get { return 1;} }
-    public override int maxSuccess { get { return 5; } }
-    public override int highRoll { get { return 6;} }
+    public override int lowRoll { get { return 1; } }
+    public override int minSuccess { get { return 2;} }
+    public override int maxSuccess { get { return 6; } }
+    public override int highRoll { get { return 8;} }
 
     private List<string> postRollTextList;
 
