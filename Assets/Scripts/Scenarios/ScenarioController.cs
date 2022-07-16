@@ -18,11 +18,13 @@ public class ScenarioController : MonoBehaviour
         
         if (GameController.Instance.isStoryScenario)
         {
-            LoadStoryScenario();
+            LoadStoryScenario(GameController.Instance.scenarioList[GameController.Instance.index]);
+            GameController.Instance.isStoryScenario = false;
         }
         else
         {
             LoadRandomScenario();
+            if (GameController.Instance.numRandomScenario <= 0) GameController.Instance.isStoryScenario = true;
         }
     }
 
@@ -34,13 +36,13 @@ public class ScenarioController : MonoBehaviour
         scenarioOverlay.SetScenarioController(this);
     }
 
-    private void LoadStoryScenario()
+    private void LoadStoryScenario(BaseScenario scenario)
     {
         scenarioStoryCard.Show();
         scenarioCard1.Hide();
         scenarioCard2.Hide();
 
-        GenerateNextStoryScenario();
+        scenarioStoryCard.SetScenarioText(scenario);
     }
 
     private void LoadRandomScenario()
@@ -52,18 +54,12 @@ public class ScenarioController : MonoBehaviour
         GenerateRandomScenario();
     }
 
-    private void GenerateNextStoryScenario()
-    {
-        // TODO
-        scenarioStoryCard.SetScenarioText(new StoryScenario1());
-    }
-
     private void GenerateRandomScenario()
     {
         // TODO: generate 2 random scenarios from 2 different categories
         // For now, hardcoded
         scenarioCard1.SetScenarioText(new RobCleaningRobotRandomScenario());
-        scenarioCard2.SetScenarioText(new StoryScenario2());
+        scenarioCard2.SetScenarioText(new RobFarmerRandomScenario());
     }
 
     public void ShowScenarioOverlay(BaseScenario scenario)

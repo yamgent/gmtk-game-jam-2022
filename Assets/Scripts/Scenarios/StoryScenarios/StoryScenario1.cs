@@ -8,8 +8,8 @@ public class StoryScenario1 : BaseScenario
     public override string rewardsString { get { return "None"; } }
     public override int lowRoll { get { return 1; } }
     public override int minSuccess { get { return 5;} }
-    public override int maxSuccess { get { return 6; } }
-    public override int highRoll { get { return 7;} }
+    public override int maxSuccess { get { return 7; } }
+    public override int highRoll { get { return 8;} }
 
     private List<string> postRollTextList;
 

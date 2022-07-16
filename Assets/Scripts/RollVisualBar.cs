@@ -27,7 +27,7 @@ public class RollVisualBar : MonoBehaviour
     {
         superLowBar.fillAmount = GetFillAmount(low, min, max);
         lowBar.fillAmount = GetFillAmount(minSuccess, min, max);
-        successBar.fillAmount = GetFillAmount(maxSuccess, min, max);
+        successBar.fillAmount = GetFillAmount(maxSuccess - 1, min, max);
         highBar.fillAmount = GetFillAmount(high, min, max);
     }
 
@@ -37,7 +37,7 @@ public class RollVisualBar : MonoBehaviour
 
         superLowFillTarget = GetFillAmount(low, min, max);
         lowFillTarget = GetFillAmount(minSuccess, min, max);
-        successFillTarget = GetFillAmount(maxSuccess, min, max);
+        successFillTarget = GetFillAmount(maxSuccess - 1, min, max);
         highFillTarget = GetFillAmount(high, min, max);
 
         superLowFillCurrent = superLowBar.fillAmount;
