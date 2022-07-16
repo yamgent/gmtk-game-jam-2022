@@ -29,7 +29,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
         {
             moneyToAdd = 10;
         }
-        else if (rolledNumber <= 6)
+        else
         {
             moneyToAdd = 5;
         }
