@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public int numRandomScenario;
     public bool isStoryScenario;
     public bool isStory;
+    public bool isFinalScenario;
 
     private void Awake()
     {
@@ -39,6 +40,11 @@ public class GameController : MonoBehaviour
         }
 
         isStory = !isStory;
+    }
+
+    public void StartLoseScene() {
+        // TODO: Animate this?
+        SceneManager.LoadScene("EndScene");
     }
 
     private void setToScenario() {

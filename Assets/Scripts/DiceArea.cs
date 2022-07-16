@@ -17,7 +17,10 @@ public class DiceArea : MonoBehaviour
     
     public void IncreaseDice()
     {
-        numDice = Mathf.Min(Mathf.Min(maxDice, Player.Instance.Dice), numDice + 1);
+        numDice =
+            Mathf.Min(
+              Mathf.Min(Mathf.Max(1, Player.Instance.Dice), maxDice),
+              numDice + 1);
         numDiceText.text = numDice.ToString();
     }
 

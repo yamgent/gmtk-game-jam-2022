@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         set {
             health = Mathf.Max(value, 0);
             if (health == 0) {
-                //scenarioManager#loseReasonZeroHealth
+                GameController.Instance.StartLoseScene();
             }
         }
     }
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
             dice = value;
             if (dice < 0) {
                 dice = 0;
-                //scenarioManager#loseReasonNegativeDice
+                GameController.Instance.StartLoseScene();
             }
         }
     }
