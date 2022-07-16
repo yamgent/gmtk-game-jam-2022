@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class BaseScenario
 {
@@ -12,7 +13,8 @@ public abstract class BaseScenario
 
     public abstract List<string> GetPreRollTextList();
 
-    public abstract void PerformRollResult(int rolledNumber);
+    // return in the format: Vector3Int(Gold, Health, Money)
+    public abstract Vector3Int GetRollResult(int rolledNumber);
 
     public abstract List<string> GetPostRollTextList(int rolledNumber);
 

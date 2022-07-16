@@ -21,7 +21,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
         };
     }
 
-    public override void PerformRollResult(int rolledNumber)
+    public override Vector3Int GetRollResult(int rolledNumber)
     {
         if (rolledNumber <= 1)
         {
@@ -35,7 +35,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
         {
             moneyToAdd = 5;
         }
-        //player money += moneyToAdd;
+        return new Vector3Int(moneyToAdd, 0, 0);
     }
 
     public override List<string> GetPostRollTextList(int rolledNumber)

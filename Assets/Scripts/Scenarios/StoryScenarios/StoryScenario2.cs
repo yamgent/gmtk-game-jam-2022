@@ -11,6 +11,8 @@ public class StoryScenario2 : BaseScenario
     public override int maxSuccess { get { return 9; } }
     public override int highRoll { get { return 12;} }
 
+    private int diceToAdd = 0;
+
     public override List<string> GetPreRollTextList()
     {
         return new List<string> {
@@ -21,20 +23,23 @@ public class StoryScenario2 : BaseScenario
         };
     }
 
-    public override void PerformRollResult(int rolledNumber)
+    public override Vector3Int GetRollResult(int rolledNumber)
     {
+
         if (rolledNumber <= 3)
         {
-            //gain X-1 dice
+            diceToAdd = rolledNumber - 1;
         }
         else if (rolledNumber <= 8)
         {
-            //gain X dice
+            diceToAdd = rolledNumber;
         }
         else
         {
-            //gain X/2 dice
+            diceToAdd = rolledNumber / 2;
         }
+
+        return new Vector3Int(0, 0, diceToAdd);
     }
 
     public override List<string> GetPostRollTextList(int rolledNumber)

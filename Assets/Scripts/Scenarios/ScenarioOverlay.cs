@@ -10,9 +10,19 @@ public class ScenarioOverlay : MonoBehaviour
 
     public RollVisual rollVisual;
     public DiceArea diceArea;
+        
+    private ScenarioController parent;
+    private BaseScenario scenario;
+
+    public void SetScenarioController(ScenarioController parent) 
+    {
+        this.parent = parent;
+    }
 
     public void Show(BaseScenario scenario)
     {
+        this.scenario = scenario;
+
         gameObject.SetActive(true);
 
         title.text = scenario.title;
@@ -21,10 +31,11 @@ public class ScenarioOverlay : MonoBehaviour
         rollVisual.InitializeRollVisual(scenario);
         diceArea.ResetDice();
         NumDiceChanged();
+    }
 
-        // TODO: Dice roll details
-
-        // TODO: Get nicely parsed result string from BaseScenario
+    public void RollDice()
+    {
+        parent.ResolveScenario(scenario, diceArea.numDice);
     }
 
     public void NumDiceChanged()
