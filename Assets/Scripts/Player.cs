@@ -15,9 +15,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameEvents gameEventsSingleton = GameEvents.GetSingleton();
-        gameEventsSingleton.onGameOver += HandleGameOver;
-
         Reset();
     }
 
@@ -25,11 +22,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void HandleGameOver()
-    {
-        Reset();
     }
 
     void Reset()
@@ -44,7 +36,7 @@ public class Player : MonoBehaviour
         health = Mathf.Max(Mathf.Min(health + amount, 0), maxHealth);
         if (health == 0)
         {
-            GameEvents.GetSingleton().GameOver();
+            //scenarioManager#loseReasonZeroHealth
         }
     }
 
