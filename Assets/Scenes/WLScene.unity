@@ -1036,14 +1036,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 993192875566607417, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 993192875566607417, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 993192875566607417, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1077,7 +1069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 993192875566607417, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 993192875566607417, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1094,6 +1086,10 @@ PrefabInstance:
     - target: {fileID: 993192875566607422, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
       propertyPath: m_Name
       value: ScenarioOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 993192875566607422, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5337bb7b1251d6c4cacf61f9f07fac99, type: 3}
