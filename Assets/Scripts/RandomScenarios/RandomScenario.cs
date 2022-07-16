@@ -6,6 +6,8 @@ public abstract class RandomScenario : MonoBehaviour
 {
     public abstract string GetTitle();
 
+    public abstract List<string> GetPreRollTextList();
+
     public abstract void PerformResult(int rolledNumber);
 
     protected string resultText = "No result yet.";

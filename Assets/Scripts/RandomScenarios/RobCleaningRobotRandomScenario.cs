@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class RobCleaningRobotRandomScenario : RandomScenario
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override string GetTitle()
     {
         return "Rob Cleaning Robot";
-    } 
+    }
+
+    public override List<string> GetPreRollTextList()
+    {
+        return new List<string> {
+            "You encountered a cleaning robot.",
+            "No one's looking... Rob him!"
+        };
+    }
 
     public override void PerformResult(int rolledNumber)
     {
@@ -36,7 +32,7 @@ public class RobCleaningRobotRandomScenario : RandomScenario
         {
             moneyToAdd = 5;
         }
-        resultText = "Successfully stole " + moneyToAdd + " gold";
+        resultText = "Successfully stole " + moneyToAdd + " gold!";
         //player money += moneyToAdd;
     }
 }
