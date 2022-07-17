@@ -35,13 +35,7 @@ public class StoryController : MonoBehaviour
     public void LoadStory(BaseStory story) 
     {
         currentStory = story;
-        dialogueAnimation.OnAnimatedTextCompleted += setAnimatedTextCompleted;
         storyImageArea.SetImageList(story.GetStoryImageList());
         dialogueAnimation.SetDialogue(story.GetStoryTextList());
     }
-
-    private void setAnimatedTextCompleted() {
-        storyImageArea.setAnimatedTextCompleted();
-    }
-
 }
