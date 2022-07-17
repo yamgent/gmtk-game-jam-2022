@@ -12,6 +12,6 @@ public class RandomStory7 : BaseStory
     }
 
     public override List<int> GetStoryImageList() {
-        return null;
+        return new List<int> { 6 };
     }
 }
