@@ -11,9 +11,13 @@ public class EndGameController : MonoBehaviour
     public TMP_Text goldText;
     public TMP_Text scoreSummaryText;
 
+    public GameObject noDiceBackground;
+
     // Start is called before the first frame update
     void Start()
     {
+        noDiceBackground.SetActive(false);
+
         if (Player.Instance.Health == 0)
         {
             titleText.text = "You bled to death.";
@@ -21,6 +25,7 @@ public class EndGameController : MonoBehaviour
         else if (Player.Instance.Dice == 0)
         {
             titleText.text = "You have no more dice left.";
+            noDiceBackground.SetActive(true);
         }
         else
         {
