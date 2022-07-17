@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomStory2 : BaseStory
+public class RandomStory5 : BaseStory
 {
     public override List<string> GetStoryTextList() 
     {
         return new List<string> {
-           "After wandering for a long time, you stumble upon a small village."
+            "Even veteran pirates have trouble reading maps.",
+            "You are hopelessly lost in space."
         };
     }
 }

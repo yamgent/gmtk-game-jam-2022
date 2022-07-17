@@ -56,7 +56,7 @@ public class StoryScenario3 : BaseScenario
             postRollTextList.Add("You shoot at the bandits and kill them all. Blood is splattered all over the shop. Shopkeeper thanks you for the help.");
         }
 
-        postRollTextList.Add("The shopkeeper adds on, saying: since you are here, would you like to look at some of my wares?");
+        postRollTextList.Add("You got shoo-ed out of the shop. Turns out all shops in the galaxy are not ready to open yet, due to time constraints..")
 
         return new Vector3Int(goldToAdd, 0, 0);
     }
