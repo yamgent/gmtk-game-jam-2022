@@ -12,7 +12,7 @@ public class DiceArea : MonoBehaviour
 
     public void ResetDice()
     {
-        numDice = 1;
+        numDice = Mathf.Min(1, Player.Instance.Dice); // Could be 0.
         rollValues = new int[dice.Length];
 
         ShowDice();
@@ -40,7 +40,7 @@ public class DiceArea : MonoBehaviour
     {
         numDice =
             Mathf.Min(
-              Mathf.Min(Mathf.Max(1, Player.Instance.Dice), dice.Length),
+              Mathf.Min(Player.Instance.Dice, dice.Length),
               numDice + 1);
         ShowDice();
     }
@@ -52,7 +52,7 @@ public class DiceArea : MonoBehaviour
 
     public void DecreaseDice()
     {
-        numDice = Mathf.Max(1, numDice - 1);
+        numDice = Player.Instance.Dice == 0 ? 0 : Mathf.Max(1, numDice - 1);
         ShowDice();
     }
 

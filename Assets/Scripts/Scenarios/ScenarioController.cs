@@ -128,6 +128,12 @@ public class ScenarioController : MonoBehaviour
 
     public void ResolveScenario(BaseScenario scenario, int numDice)
     {
+        if (numDice == 0) {
+            // The player clicked "Roll" with no dice.
+            GameController.Instance.StartLoseScene();
+            return;
+        }
+
         Player.Instance.Dice -= numDice;
         int finalRoll = 0;
         for (int i = 0; i < numDice; ++i)
