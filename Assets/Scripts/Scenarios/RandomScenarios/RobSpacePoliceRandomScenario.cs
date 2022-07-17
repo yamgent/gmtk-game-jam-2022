@@ -57,7 +57,10 @@ public class RobSpacePoliceRandomScenario : BaseScenario
         }
         else // Super High outcome
         {
-            // Not possible.
+            moneyToAdd = rolledNumber * 2;
+
+            postRollTextList.Add("You hit the space police hard and fast, stealing their gold. They could not retaliate at all.");
+            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);
