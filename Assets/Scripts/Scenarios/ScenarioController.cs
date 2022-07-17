@@ -46,7 +46,8 @@ public class ScenarioController : MonoBehaviour
         new PositivityRandomScenario(),
         new QuackEncounterRandomScenario(),
         new RAndRRandomScenario(),
-        new RobotAssassinRandomScenario()
+        new RobotAssassinRandomScenario(),
+        new TestNewIllegalDrugRandomScenario()
     };
     private List<BaseScenario> diceRandomScenarioList = new List<BaseScenario> {
         new LuckyRandomScenario(),
@@ -54,7 +55,8 @@ public class ScenarioController : MonoBehaviour
         new OpenedWindowsRandomScenario(),
         new DiceCloningMachineRandomScenario(),
         new UndergroundCasinoRandomScenario(),
-        new SecretDiceMinesRandomScenario()
+        new SecretDiceMinesRandomScenario(),
+        new AttackActiveMineRandomScenario()
     };
 
     public void Start()

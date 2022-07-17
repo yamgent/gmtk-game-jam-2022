@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecretDiceMinesRandomScenario : BaseScenario
+public class AttackActiveMineRandomScenario : BaseScenario
 {
-    public override string title { get { return "Hidden Dice Mine"; } }
+    public override string title { get { return "Attack Active Dice Mine"; } }
     public override string rewardsString { get { return "Dice"; } }
-    public override int lowRoll { get { return 12; } }
-    public override int minSuccess { get { return 14;} }
-    public override int maxSuccess { get { return 16; } }
-    public override int highRoll { get { return 18;} }
+    public override int lowRoll { get { return 4; } }
+    public override int minSuccess { get { return 7;} }
+    public override int maxSuccess { get { return 11; } }
+    public override int highRoll { get { return 14;} }
 
     private List<string> postRollTextList;
 
     public override string GetDescription()
     {
-        return "You found a secret cave that could be full of dice. Time to get digging.";
+        return "You found an active dice mine. You can threaten the mines to get the miners to mine for you.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
@@ -27,34 +27,35 @@ public class SecretDiceMinesRandomScenario : BaseScenario
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            postRollTextList.Add("The dice you found were too old to be used.");
+            diceToAdd = 1;
+
+            postRollTextList.Add("The miners refuse to mine for you. You secretly mine some dice.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            diceToAdd = 3;
+            diceToAdd = 4;
+            moneyToAdd = -10;
 
-            postRollTextList.Add("After hours of back-breaking digging, you found a few dice.");
+            postRollTextList.Add("The miners agree to help you mine dice in exchange for gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            diceToAdd = 7;
+            diceToAdd = 4;
 
-            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
+            postRollTextList.Add("The miners agree to help you mine dice.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
             diceToAdd = 3;
+            healthToAdd = -5;
 
-            postRollTextList.Add("The tunnel ahead collapsed infront of you. There is no way to dig for more dice.");
-            postRollTextList.Add("Fortunately, you already found enough dice to make it a fruitful endeavour.");
+            postRollTextList.Add("The miners refuse initially, but agree after a short battle.");
         }
         else // Super High outcome
         {
             healthToAdd = -10;
 
-            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
-            postRollTextList.Add("But the tunnel collapsed above you.");
-            postRollTextList.Add("You could not retrieve any dice, and got hurt in the process.");
+            postRollTextList.Add("The miners refuse and a battle ensues.. You killed all the miners, but lost a lot of health too.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {

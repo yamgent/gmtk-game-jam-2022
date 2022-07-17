@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecretDiceMinesRandomScenario : BaseScenario
+public class TestNewIllegalDrugRandomScenario : BaseScenario
 {
-    public override string title { get { return "Hidden Dice Mine"; } }
-    public override string rewardsString { get { return "Dice"; } }
-    public override int lowRoll { get { return 12; } }
-    public override int minSuccess { get { return 14;} }
-    public override int maxSuccess { get { return 16; } }
-    public override int highRoll { get { return 18;} }
+    public override string title { get { return "Test new illegal drug"; } }
+    public override string rewardsString { get { return "Health"; } }
+    public override int lowRoll { get { return 4; } }
+    public override int minSuccess { get { return 7;} }
+    public override int maxSuccess { get { return 15; } }
+    public override int highRoll { get { return 17;} }
 
     private List<string> postRollTextList;
 
     public override string GetDescription()
     {
-        return "You found a secret cave that could be full of dice. Time to get digging.";
+        return "You are given the opportunity to try out the newest drug.\n" +
+            "The drug dealer promises it will grant you immense strength.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
@@ -27,34 +28,36 @@ public class SecretDiceMinesRandomScenario : BaseScenario
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            postRollTextList.Add("The dice you found were too old to be used.");
+            healthToAdd = -3;
+
+            postRollTextList.Add("Your body does not react well to the drug. Seems like you are allergic.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            diceToAdd = 3;
+            healthToAdd = 1;
 
-            postRollTextList.Add("After hours of back-breaking digging, you found a few dice.");
+            postRollTextList.Add("The drug does not seem to have much effect.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            diceToAdd = 7;
+            healthToAdd = 10;
 
-            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
+            postRollTextList.Add("The drug makes you feel stronger.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
-            diceToAdd = 3;
+            healthToAdd = -5;
 
-            postRollTextList.Add("The tunnel ahead collapsed infront of you. There is no way to dig for more dice.");
-            postRollTextList.Add("Fortunately, you already found enough dice to make it a fruitful endeavour.");
+            postRollTextList.Add("The drug makes you feel much stronger.");
+            postRollTextList.Add("You attempt to show off by lifting your spaceship, injuring your back.");
         }
         else // Super High outcome
         {
-            healthToAdd = -10;
+            healthToAdd = 10;
+            moneyToAdd = -10;
 
-            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
-            postRollTextList.Add("But the tunnel collapsed above you.");
-            postRollTextList.Add("You could not retrieve any dice, and got hurt in the process.");
+            postRollTextList.Add("The drug makes you feel stronger, but you got addicted to it.");
+            postRollTextList.Add("Spend some money to purchase more.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
