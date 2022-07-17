@@ -12,6 +12,10 @@ public class StoryController : MonoBehaviour
         new RandomStory2(),
         new RandomStory3(),
         new RandomStory4(),
+        new RandomStory5(),
+        new RandomStory6(),
+        new RandomStory7(),
+        new RandomStory8(),
     };
 
     // Start is called before the first frame update
