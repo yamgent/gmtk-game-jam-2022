@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class DiceRoll : MonoBehaviour
 {
+    public Sprite spriteFaceOne;
+    public Sprite spriteFaceTwo;
+    public Sprite spriteFaceThree;
+    public Sprite spriteFaceFour;
+    public Sprite spriteFaceFive;
+    public Sprite spriteFaceSix;
+
     // Constants.
     private int numBounces = 3;
     private float timePerVerticalTravel = 0.25f;
@@ -32,8 +39,7 @@ public class DiceRoll : MonoBehaviour
 
     private Vector3 localPositionStart;
     private Vector3 localPositionEnd;
-    private Quaternion localRotationStart;
-    private Quaternion localRotationEnd;
+    private float totalRotationDegrees;
 
     // Start is called before the first frame update
     void Start()
@@ -51,11 +57,10 @@ public class DiceRoll : MonoBehaviour
         // End position is local to parent at zeroes. Work backwards to find starting position.
         localPositionStart = new Vector3(-horizontalDistancePerSecond * numRemainingVerticalTravel * timePerVerticalTravel, currentBounceHeight, 0);
         localPositionEnd = new Vector3(-horizontalDistancePerSecond * (numRemainingVerticalTravel-1) * timePerVerticalTravel, 0, 0);
-        localRotationStart = Quaternion.Euler(0, 0, rotateDegreesPerSecond * totalAnimationTime);
-        localRotationEnd = Quaternion.identity;
+        totalRotationDegrees = rotateDegreesPerSecond * totalAnimationTime;
         
         gameObject.transform.localPosition = localPositionStart;
-        gameObject.transform.localRotation = localRotationStart;
+        gameObject.transform.localRotation = Quaternion.Euler(0, 0, totalRotationDegrees);
 
         diceRollState = DiceRollState.FallingDown;
         FaceNumber = Random.Range(1, 7);
@@ -67,8 +72,9 @@ public class DiceRoll : MonoBehaviour
         timer += Time.deltaTime;
         verticalTravelTimer += Time.deltaTime;
 
+        float rotationDegrees = Mathf.Lerp(totalRotationDegrees, 0, Mathf.Min(1, timer / totalAnimationTime));
         gameObject.transform.localPosition = Vector3.Lerp(localPositionStart, localPositionEnd, Mathf.Min(1, verticalTravelTimer / timePerVerticalTravel));
-        gameObject.transform.localRotation = Quaternion.Lerp(localRotationStart, localRotationEnd, Mathf.Min(1, timer / totalAnimationTime));
+        gameObject.transform.localRotation = Quaternion.Euler(0, 0, rotationDegrees);
 
         if (verticalTravelTimer >= timePerVerticalTravel) {
             verticalTravelTimer -= timePerVerticalTravel;
@@ -76,10 +82,10 @@ public class DiceRoll : MonoBehaviour
         }
     }
 
-    void FlipVerticalTravel() {
+    private void FlipVerticalTravel() {
         numRemainingVerticalTravel--;
         if (diceRollState == DiceRollState.FallingDown) {
-            FaceNumber = Random.Range(1, 7);
+            ChangeDiceFace();
             if (numRemainingVerticalTravel == 0) {
                 FinishAnimations();
             } else {
@@ -95,10 +101,40 @@ public class DiceRoll : MonoBehaviour
         }
     }
 
-    void FinishAnimations() {
+    private void ChangeDiceFace() {
+        // Must change to a different face.
+        int newFaceNumber = Random.Range(1, 7);
+        while (newFaceNumber == FaceNumber) {
+            newFaceNumber = Random.Range(1, 7);
+        }
+        FaceNumber = newFaceNumber;
+        
+        switch (FaceNumber) {
+            case 1:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceOne;
+                break;
+            case 2:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceTwo;
+                break;
+            case 3:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceThree;
+                break;
+            case 4:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceFour;
+                break;
+            case 5:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceFive;
+                break;
+            case 6:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteFaceSix;
+                break;
+        }
+    }
+
+    private void FinishAnimations() {
         diceRollState = DiceRollState.Stopped;
         this.enabled = false;
         gameObject.transform.localPosition = localPositionEnd;
-        gameObject.transform.localRotation = localRotationEnd;
+        gameObject.transform.localRotation = Quaternion.identity;
     }
 }
