@@ -31,6 +31,7 @@ public class SecretDiceMinesRandomScenario : BaseScenario
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
+            healthToAdd = -1;
             diceToAdd = 3;
 
             postRollTextList.Add("After hours of back-breaking digging, you found a few dice.");

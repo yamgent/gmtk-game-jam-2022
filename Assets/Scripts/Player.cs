@@ -54,4 +54,9 @@ public class Player : MonoBehaviour
         dice = initialDice;
         gold = initialGold;
     }
+
+    public bool IsGameOver()
+    {
+        return Health <= 0 || Dice <= 0;
+    }
 }

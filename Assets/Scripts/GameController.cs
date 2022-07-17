@@ -32,6 +32,11 @@ public class GameController : MonoBehaviour
     }
 
     public void SwitchStoryAndScenario() {
+        if (Player.Instance.IsGameOver()) {
+            StartLoseScene();
+            return;
+        }
+
         if (isStory) {
             setToScenario();
         } else {
