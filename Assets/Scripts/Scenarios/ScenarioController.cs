@@ -157,7 +157,6 @@ public class ScenarioController : MonoBehaviour
         }
 
         Vector3Int result = scenario.GetRollResult(finalRoll);
-        Debug.Log("[NumDice: " + numDice + ", Roll: " + finalRoll + "] Gold += " + result.x + ", Health += " + result.y + ", Dice += " + result.z);
         Player.Instance.Gold += result.x;
         Player.Instance.Health += result.y;
         Player.Instance.Dice += result.z;
