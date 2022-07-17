@@ -15,7 +15,8 @@ public class RollOfTheDiceRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "Some punks on the streets are gambling with dice. \"Only 1 dice allowed.\"";
+        return "Some punks on the streets are gambling with dice.\n" +
+            "There is a sign which says \"Only 1 dice allowed.\"";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
