@@ -46,6 +46,14 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("EndScene");
     }
 
+    public void SetIsStoryScenario()
+    {
+        if (numRandomScenario <= 0 && index < storyList.Count - 1)
+        {
+            isStoryScenario = true;
+        }
+    }
+
     private void setToScenario() {
         SceneManager.LoadScene("GameScene");
     }

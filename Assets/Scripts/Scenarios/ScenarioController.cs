@@ -66,7 +66,7 @@ public class ScenarioController : MonoBehaviour
         else
         {
             LoadRandomScenario();
-            if (GameController.Instance.numRandomScenario <= 0) GameController.Instance.isStoryScenario = true;
+            GameController.Instance.SetIsStoryScenario();
         }
     }
 
