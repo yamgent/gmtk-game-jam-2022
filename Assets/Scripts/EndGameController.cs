@@ -32,6 +32,7 @@ public class EndGameController : MonoBehaviour
         }
         else
         {
+            Debug.LogError("Impossible, but kept in case we broke something");
             titleText.text = "You conquered the galaxy. You are the strongest and richest pirate ever lived.";
         }
 
