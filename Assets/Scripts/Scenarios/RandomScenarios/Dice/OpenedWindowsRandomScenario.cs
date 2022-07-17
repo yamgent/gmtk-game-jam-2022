@@ -47,9 +47,9 @@ public class OpenedWindowsRandomScenario : BaseScenario
         }
         else // Super High outcome
         {
-            diceToAdd = -2;
+            diceToAdd = 2;
 
-            postRollTextList.Add("A burgler stole some dice before you noticed.");
+            postRollTextList.Add("A burgler snuck in to steal some dice. You noticed him and robbed his dice instead.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
