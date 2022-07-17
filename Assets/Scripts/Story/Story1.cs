@@ -10,8 +10,7 @@ public class Story1 : BaseStory
             "On home planet..",
             "It is the year 30XX.",
             "I was once a great space pirate.",
-            "Pirating is a very lucrative profession.",
-            "My coffers are filled to the brim with gold.",
+            "Pirating is a very lucrative profession, and my coffers are filled to the brim with gold.",
             "I can safely retire now, after many long years.",
             "(Sounds of gunfire)"
         };

@@ -15,7 +15,7 @@ public class StoryScenario2 : BaseScenario
 
     public override string GetDescription()
     {
-        return "Sneak into the mines and steal as much dice as you can.\n" +
+        return "Sneak into the mines and steal as many dice as you can.\n" +
             "Dice are an important resource in your journey. You will be unable to continue if you run out of dice. " +
             "Use them carefully..";
     }
@@ -47,13 +47,13 @@ public class StoryScenario2 : BaseScenario
         {
             diceToAdd = rolledNumber / 2;
 
-            postRollTextList.Add("Took too much dice and alerted the guards. Dropped half of the stolen dice while escaping.");
+            postRollTextList.Add("Took too many dice and alerted the guards. Dropped half of the stolen dice while escaping.");
         }
         else // Super High outcome
         {
             diceToAdd = rolledNumber / 2;
 
-            postRollTextList.Add("Took too much dice and alerted the guards. Dropped half of the stolen dice while escaping.");
+            postRollTextList.Add("Took too many dice and alerted the guards. Dropped half of the stolen dice while escaping.");
         }
 
         postRollTextList.Add("That was a good haul of dice. Gained " + diceToAdd + " dice.");

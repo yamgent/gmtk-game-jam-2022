@@ -15,10 +15,10 @@ public class StoryScenario1 : BaseScenario
 
     public override string GetDescription()
     {
-        return "Two pirates have kicked down the door to your house and are ready for a fight." +
-            "Time to teach them a lesson.\n" +
-            "The number of dice you use represent the amount of power and luck. " +
-            "Be warned that using too much power is not always good..";
+        return "Two pirates kicked down your door and wants to fight!" +
+            "Time to teach them a lesson!\n" +
+            "(The number of dice you use represent the amount of power and luck. " +
+            "Be warned that using too much power is not always good.)";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
