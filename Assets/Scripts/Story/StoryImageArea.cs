@@ -9,7 +9,6 @@ public class StoryImageArea : MonoBehaviour
 
     private List<int> imageList;
     private int index;
-    private bool isAnimatedTextCompleted;
 
     void Start()
     {
@@ -50,9 +49,5 @@ public class StoryImageArea : MonoBehaviour
 
     public void SetImageList(List<int> imageList) {
         this.imageList = imageList;
-    }
-
-    public void setAnimatedTextCompleted() {
-        isAnimatedTextCompleted = true;
     }
 }
