@@ -103,10 +103,15 @@ public class ScenarioController : MonoBehaviour
 
     private void GenerateRandomScenario()
     {
-        // TODO: generate 2 random scenarios from 2 different categories
-        // For now, hardcoded
-        scenarioCard1.SetScenarioText(new RobCleaningRobotRandomScenario());
-        scenarioCard2.SetScenarioText(new RobFarmerRandomScenario());
+        List<List<BaseScenario>> randomScenarioList = new List<List<BaseScenario>> {
+            goldRandomScenarioList,
+            healthRandomScenarioList,
+            diceRandomScenarioList
+        };
+        randomScenarioList.RemoveAt(Random.Range(0, 3));
+
+        scenarioCard1.SetScenarioText(randomScenarioList[0][Random.Range(0, randomScenarioList[0].Count)]);
+        scenarioCard2.SetScenarioText(randomScenarioList[1][Random.Range(0, randomScenarioList[1].Count)]);
     }
 
     public void ShowScenarioOverlay(BaseScenario scenario)
