@@ -13,7 +13,7 @@ public class EndGameController : MonoBehaviour
         if (Player.Instance.Health == 0) {
             titleText.text = "You bled to death.";
         } else if (Player.Instance.Dice == 0) {
-            titleText.text = "You have no more die left.";
+            titleText.text = "You have no more dice left.";
         } else {
             titleText.text = "You conquered the galaxy. You are the strongest and richest pirate ever lived.";
         }
