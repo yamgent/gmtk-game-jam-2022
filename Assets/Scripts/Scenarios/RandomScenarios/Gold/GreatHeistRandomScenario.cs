@@ -15,7 +15,8 @@ public class GreatHeistRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "Attempt to rob a museum.";
+        return "Ah, the grand galatic museum. It is home to many famous and expensive artworks.\n" +
+            "You could attempt a hiest..";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

@@ -15,7 +15,8 @@ public class UndergroundCasinoRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "A hidden casino for VIPs only. Only accepts dice as bets.";
+        return "A hidden casino for VIPs only. Only accepts dice as bets.\n" +
+            "Are you game?";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
