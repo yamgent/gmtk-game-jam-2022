@@ -22,43 +22,43 @@ public class StoryScenario3 : BaseScenario
     public override Vector3Int GetRollResult(int rolledNumber)
     {
         postRollTextList = new List<string>();
-        int moneyToAdd = 0;
+        int goldToAdd = 0;
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            moneyToAdd = 0;
+            goldToAdd = 0;
 
             postRollTextList.Add("You take aim at the bandits, but miss your shots. They hit the shelf behind the bandits, causing it to topple onto them. Shopkeeper thanks you for the help.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            moneyToAdd = 0;
+            goldToAdd = 0;
 
             postRollTextList.Add("You take aim at the bandits, but miss your shots. They hit the shelf behind the bandits, causing it to topple onto them. Shopkeeper thanks you for the help.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            moneyToAdd = 5;
+            goldToAdd = 5;
 
             postRollTextList.Add("Dispatched the bandits easily. They flee the shop.");
             postRollTextList.Add("Shopkeeper rewards you with some gold as thanks. Gained 5 gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
-            moneyToAdd = 0;
+            goldToAdd = 0;
 
             postRollTextList.Add("You shoot at the bandits and kill them all. Blood is splattered all over the shop. Shopkeeper thanks you for the help.");
         }
         else // Super High outcome
         {
-            moneyToAdd = 0;
+            goldToAdd = 0;
             
             postRollTextList.Add("You shoot at the bandits and kill them all. Blood is splattered all over the shop. Shopkeeper thanks you for the help.");
         }
 
         postRollTextList.Add("The shopkeeper adds on, saying: since you are here, would you like to look at some of my wares?");
 
-        return new Vector3Int(moneyToAdd, 0, 0);
+        return new Vector3Int(goldToAdd, 0, 0);
     }
 
     public override List<string> GetPostRollTextList()

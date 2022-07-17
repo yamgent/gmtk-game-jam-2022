@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -40,6 +39,11 @@ public class GameController : MonoBehaviour
         }
 
         isStory = !isStory;
+    }
+
+    public void StartLoseScene() {
+        // TODO: Animate this?
+        SceneManager.LoadScene("EndScene");
     }
 
     private void setToScenario() {

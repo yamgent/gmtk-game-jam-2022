@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006657814775981124, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006657816587618866, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
       propertyPath: m_Pivot.x
@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006657816587618867, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
       propertyPath: m_Name
-      value: MoneyUI
+      value: GoldUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
@@ -784,6 +784,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5006657816587618866, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
   m_PrefabInstance: {fileID: 894117146}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &894117148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5006657814775981124, guid: 896aa74ba0282474aa32dc74a8328296, type: 3}
+  m_PrefabInstance: {fileID: 894117146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &965927546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,12 +1038,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ea6d99859f94940a1b1a597380ffa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioTextObject: {fileID: 0}
   scenarioStoryCard: {fileID: 2117434638}
   scenarioCard1: {fileID: 353813387}
   scenarioCard2: {fileID: 1666820546}
   scenarioOverlay: {fileID: 1941753438}
   dialogueAnimation: {fileID: 979782819}
+  healthNumberText: {fileID: 2042994965}
+  diceNumberText: {fileID: 5006657815305776350}
+  goldNumberText: {fileID: 894117148}
 --- !u!4 &1612270337
 Transform:
   m_ObjectHideFlags: 0
@@ -1409,6 +1422,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5006657816587618866, guid: c43cb34fcd0278d479c7499935020bd2, type: 3}
   m_PrefabInstance: {fileID: 2042994963}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042994965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5006657814775981124, guid: c43cb34fcd0278d479c7499935020bd2, type: 3}
+  m_PrefabInstance: {fileID: 2042994963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2051135789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -3.8781128, y: 138.0406}
+  m_AnchoredPosition: {x: -3.8780518, y: 138.04059}
   m_SizeDelta: {x: -106.2019, y: 178.0813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2117434638 stripped
@@ -1717,3 +1741,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ed53adef7b3444dae8482cc67d8439, type: 3}
+--- !u!114 &5006657815305776350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5006657814775981124, guid: a8ed53adef7b3444dae8482cc67d8439, type: 3}
+  m_PrefabInstance: {fileID: 5006657815305776349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,44 +22,44 @@ public class RobCleaningRobotRandomScenario : BaseScenario
     public override Vector3Int GetRollResult(int rolledNumber)
     {
         postRollTextList = new List<string>();
-        int moneyToAdd = 0;
+        int goldToAdd = 0;
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            moneyToAdd = 5;
+            goldToAdd = 5;
 
             postRollTextList.Add("Successfully robbed the robot, taking some of its gold.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            moneyToAdd = 5;
+            goldToAdd = 5;
 
             postRollTextList.Add("Successfully robbed the robot, taking some of its gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            moneyToAdd = 10;
+            goldToAdd = 10;
 
             postRollTextList.Add("Successfully robbed the robot, taking all of its gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
-            moneyToAdd = 5;
+            goldToAdd = 5;
 
             postRollTextList.Add("Damaged the robot, causing it to drop all of its gold and sound an alarm.");
             postRollTextList.Add("Quickly grabbed whatever gold you could and ran away.");
         }
         else // Super High outcome
         {
-            moneyToAdd = 5;
+            goldToAdd = 5;
 
             postRollTextList.Add("Damaged the robot, causing it to drop all of its gold and sound an alarm.");
             postRollTextList.Add("Quickly grabbed whatever gold you could and ran away.");
         }
 
-        postRollTextList.Add("Nice loot! Gained " + moneyToAdd + " gold.");
+        postRollTextList.Add("Nice loot! Gained " + goldToAdd + " gold.");
 
-        return new Vector3Int(moneyToAdd, 0, 0);
+        return new Vector3Int(goldToAdd, 0, 0);
     }
 
     public override List<string> GetPostRollTextList()

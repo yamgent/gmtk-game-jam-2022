@@ -12,21 +12,21 @@ public class DiceArea : MonoBehaviour
     public void ResetDice()
     {
         numDice = 1;
-        numDiceText.text = "" + numDice;
+        numDiceText.text = numDice.ToString();
     }
     
     public void IncreaseDice()
     {
-        // TODO: Need to check with current number of dice also
-        numDice = Mathf.Min(maxDice, numDice + 1);
-
-        numDiceText.text = "" + numDice;
+        numDice =
+            Mathf.Min(
+              Mathf.Min(Mathf.Max(1, Player.Instance.Dice), maxDice),
+              numDice + 1);
+        numDiceText.text = numDice.ToString();
     }
 
     public void DecreaseDice()
     {
         numDice = Mathf.Max(1, numDice - 1);
-
-        numDiceText.text = "" + numDice;
+        numDiceText.text = numDice.ToString();
     }
 }

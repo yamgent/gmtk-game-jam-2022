@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 100
-  initialMoney: 100
+  initialDice: 12
+  initialGold: 10100

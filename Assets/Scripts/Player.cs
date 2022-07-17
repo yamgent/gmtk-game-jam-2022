@@ -4,44 +4,54 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
     // Constants set in Unity scene editor.
     public int initialHealth;
-    public int initialMoney;
+    public int initialDice;
+    public int initialGold;
     
-    private int maxHealth;
     private int health;
-    private int money;
+    public int Health {
+        get { return health; }
+        set {
+            health = Mathf.Max(value, 0);
+            if (health == 0) {
+                GameController.Instance.StartLoseScene();
+            }
+        }
+    }
+
+    private int dice;
+    public int Dice {
+        get { return dice; }
+        set {
+            dice = value;
+            if (dice < 0) {
+                dice = 0;
+                GameController.Instance.StartLoseScene();
+            }
+        }
+    }
+
+    private int gold;
+    public int Gold {
+        get { return gold; }
+        set { gold = Mathf.Max(value, 0); }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Reset();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void Reset()
-    {
-        maxHealth = initialHealth;
-        health = initialHealth;
-        money = initialMoney;
-    }
-
-    void AddHealth(int amount)
-    {
-        health = Mathf.Max(Mathf.Min(health + amount, 0), maxHealth);
-        if (health == 0)
-        {
-            //scenarioManager#loseReasonZeroHealth
+        if (Instance != null) {
+            Destroy(gameObject);
+            return;
         }
-    }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
-    void AddMoney(int amount)
-    {
-        money = Mathf.Min(money + amount, 0);
+        health = initialHealth;
+        dice = initialDice;
+        gold = initialGold;
     }
 }
