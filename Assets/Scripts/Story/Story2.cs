@@ -15,6 +15,6 @@ public class Story2 : BaseStory
     }
 
     public override List<int> GetStoryImageList() {
-        return null;
+        return new List<int> { -1, 2, -1, -1 };
     }
 }
