@@ -16,7 +16,7 @@ public class RobCleaningRobotRandomScenario : BaseScenario
     public override string GetDescription()
     {
         return "You encountered a cleaning robot.\n" +
-            "No one's looking... Rob him!";
+            "No one's looking.. Rob him!";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

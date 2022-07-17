@@ -30,7 +30,7 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
         {
             healthToAdd = -4;
 
-            postRollTextList.Add("You got out manoeuvred by the enemy at they shot you with their cannons.");
+            postRollTextList.Add("You got outmanoeuvred by the enemy as they shot you with their cannons.");
             postRollTextList.Add("Lose 4 health.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
@@ -45,7 +45,7 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
         {
             moneyToAdd = rolledNumber * 2;
 
-            postRollTextList.Add("You managed to corner the pirates, and they offered to share the loot if you stopped attacking");
+            postRollTextList.Add("You managed to corner the pirates, and they offered to share the loot if you stopped attacking.");
             postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
@@ -53,8 +53,8 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
             moneyToAdd = 25;
             diceToAdd = 1;
 
-            postRollTextList.Add("You managed to corner the pirates, and heavily damage their ship. They offered to give you the loot if you spared their lives.");
-            postRollTextList.Add("Gain 25 gold. Gain 1 dice.");
+            postRollTextList.Add("You managed to corner the pirates and heavily damage their ship. They offered to give you the loot if you spared their lives.");
+            postRollTextList.Add("Gain " + moneyToAdd + " gold. Gain " + diceToAdd + " dice.");
         }
         else // Super High outcome
         {
