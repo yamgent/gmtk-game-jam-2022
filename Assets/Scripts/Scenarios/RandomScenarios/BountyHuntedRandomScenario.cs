@@ -31,14 +31,12 @@ public class BountyHuntedRandomScenario : BaseScenario
             healthToAdd = -5;
 
             postRollTextList.Add("The bounty hunter was merciless. At least gold is merciful..");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold. Lose " + (-healthToAdd) + " health.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
             moneyToAdd = -20;
 
             postRollTextList.Add("You got bested. But nothing a little bit of gold couldnt solve.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
@@ -53,7 +51,26 @@ public class BountyHuntedRandomScenario : BaseScenario
             moneyToAdd = rolledNumber * 2;
             
             postRollTextList.Add("You overdid it.. It is always safer to hush the prying eyes.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

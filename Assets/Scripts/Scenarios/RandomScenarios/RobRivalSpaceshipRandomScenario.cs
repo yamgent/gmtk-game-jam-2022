@@ -31,7 +31,6 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
             healthToAdd = -4;
 
             postRollTextList.Add("You got outmanoeuvred by the enemy as they shot you with their cannons.");
-            postRollTextList.Add("Lose 4 health.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
@@ -39,14 +38,12 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
 
             postRollTextList.Add("The enemy threw out a large chest of gold, presumably to lighten the load.");
             postRollTextList.Add("Upon retrieving the chest, you realized that you were tricked. There is only a pitiful amount of gold in the chest.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
             moneyToAdd = rolledNumber * 2;
 
             postRollTextList.Add("You managed to corner the pirates, and they offered to share the loot if you stopped attacking.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
@@ -54,11 +51,30 @@ public class RobRivalSpaceshipRandomScenario : BaseScenario
             diceToAdd = 1;
 
             postRollTextList.Add("You managed to corner the pirates and heavily damage their ship. They offered to give you the loot if you spared their lives.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold. Gain " + diceToAdd + " dice.");
         }
         else // Super High outcome
         {
             postRollTextList.Add("Your cannon hit the engine and blew up the entire ship, leaving nothing behind.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

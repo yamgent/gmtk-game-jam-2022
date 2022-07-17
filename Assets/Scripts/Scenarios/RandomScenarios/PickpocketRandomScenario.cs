@@ -34,7 +34,6 @@ public class PickpocketRandomScenario : BaseScenario
             moneyToAdd = -20;
 
             postRollTextList.Add("You lost the pickpocket in the crowd.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
@@ -45,14 +44,32 @@ public class PickpocketRandomScenario : BaseScenario
             moneyToAdd = -20;
 
             postRollTextList.Add("You drew your weapon and shot the pickpocket dead. You could not retrieve your gold as the space cops were after you.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else // Super High outcome
         {
             moneyToAdd = -20;
 
             postRollTextList.Add("You drew your weapon and shot the pickpocket dead. You could not retrieve your gold as the space cops were after you.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

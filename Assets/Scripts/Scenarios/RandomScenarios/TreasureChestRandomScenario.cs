@@ -30,7 +30,6 @@ public class TreaasureChestRandomScenario : BaseScenario
             healthToAdd = -5;
 
             postRollTextList.Add("The chest was rigged with explosives and blew up when you opened it.");
-            postRollTextList.Add("Lose 5 health.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
@@ -41,21 +40,38 @@ public class TreaasureChestRandomScenario : BaseScenario
             moneyToAdd = rolledNumber * 2;
 
             postRollTextList.Add("The treasure chest is full of gold!");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
             moneyToAdd = 20;
 
             postRollTextList.Add("The treasure chest is practically overflowing with gold!");
-            postRollTextList.Add("Gain 20 gold.");
         }
         else // Super High outcome
         {
             moneyToAdd = 20;
 
             postRollTextList.Add("The treasure chest is practically overflowing with gold!");
-            postRollTextList.Add("Gain 20 gold.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

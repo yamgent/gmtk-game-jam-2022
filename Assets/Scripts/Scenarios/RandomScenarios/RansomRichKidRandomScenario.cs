@@ -30,21 +30,18 @@ public class RansomRichKidRandomScenario : BaseScenario
             healthToAdd = -10;
 
             postRollTextList.Add("The rich kid's parents set a trap for you at the meeting point.");
-            postRollTextList.Add("Lose " + (-healthToAdd) + " health.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
             moneyToAdd = 50;
 
             postRollTextList.Add("The rich kid's parents haggled for a lower ransom.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
             moneyToAdd = 100;
 
             postRollTextList.Add("The rich kid's parents agreed to pay the ransom.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
@@ -52,14 +49,32 @@ public class RansomRichKidRandomScenario : BaseScenario
             healthToAdd = -rolledNumber;
 
             postRollTextList.Add("The rich kid's parents agreed to pay the ransom, but space cops were present at the meeting point. You escape after a long fight.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold. Lose " + (-healthToAdd) + " health.");
         }
         else // Super High outcome
         {
             moneyToAdd = 100 - rolledNumber;
 
             postRollTextList.Add("The rich kid's parents agree to pay the ransom, but space cops were present at the meeting point. You secretly grab however much gold you can and avoid a fight.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

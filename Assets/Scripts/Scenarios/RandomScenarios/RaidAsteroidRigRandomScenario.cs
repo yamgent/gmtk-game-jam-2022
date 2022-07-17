@@ -30,32 +30,48 @@ public class RaidAsteroidRigRandomScenario : BaseScenario
             moneyToAdd = -10;
 
             postRollTextList.Add("The miners were more skilled than expected and captured you. They offered to let you go if you paid them.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
             moneyToAdd = 10;
 
             postRollTextList.Add("Seems like the gold was recently transported off the asteroid.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
             moneyToAdd = 40;
 
             postRollTextList.Add("Jackpot! The mined gold was not transported out yet.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
             moneyToAdd = 10;
 
             postRollTextList.Add("Most of the gold was destroyed during the fight with the miners.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold.");
         }
         else // Super High outcome
         {
             postRollTextList.Add("The fuel station caught fire during the battle and exploded, destroying the entire asteroid.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

@@ -34,7 +34,6 @@ public class DropYourWalletRandomScenario : BaseScenario
             moneyToAdd = -20;
 
             postRollTextList.Add("You could not find your wallet after much searching.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
@@ -45,7 +44,6 @@ public class DropYourWalletRandomScenario : BaseScenario
             moneyToAdd = -rolledNumber * 2;
             
             postRollTextList.Add("Some kind stranger found your wallet and returned it to you. Unfortunately, the stranger took some gold before returning it to you.");
-            postRollTextList.Add("Lose " + (-moneyToAdd) + " gold.");
         }
         else // Super High outcome
         {
@@ -53,7 +51,26 @@ public class DropYourWalletRandomScenario : BaseScenario
             diceToAdd = 1;
             
             postRollTextList.Add("After much searching, you found another wallet. It containes more gold than yours.");
-            postRollTextList.Add("Gain " + moneyToAdd + " gold. Gain " + diceToAdd + "dice.");
+        }
+
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
         }
 
         return new Vector3Int(moneyToAdd, healthToAdd, diceToAdd);

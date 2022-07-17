@@ -22,49 +22,65 @@ public class RobFarmerRandomScenario : BaseScenario
     public override Vector3Int GetRollResult(int rolledNumber)
     {
         postRollTextList = new List<string>();
-        int goldToAdd = 0;
+        int moneyToAdd = 0;
         int healthToAdd = 0;
+        int diceToAdd = 0;
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            goldToAdd = 5;
+            moneyToAdd = 5;
             healthToAdd = -1;
 
             postRollTextList.Add("Farmer attacked you with his rake. You beat him up and took his wallet.");
-            postRollTextList.Add("Lose 1 health. Gain 5 gold.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            goldToAdd = 5;
+            moneyToAdd = 5;
 
             postRollTextList.Add("Farmer tried to attack you, but you dodged, and stole his wallet.");
-            postRollTextList.Add("Gain 5 gold.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            goldToAdd = 10;
+            moneyToAdd = 10;
 
             postRollTextList.Add("Farmer begged you not to hurt him and gave all his gold.");
-            postRollTextList.Add("Gain 10 gold.");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
-            goldToAdd = 5;
+            moneyToAdd = 5;
 
             postRollTextList.Add("Farmer threw the gold at you in terror and fled.");
             postRollTextList.Add("Unfortunately, some of the gold fell into the drain and got washed away..");
-            postRollTextList.Add("Gain 5 gold.");
         }
         else // Super High outcome
         {
-            goldToAdd = 5;
+            moneyToAdd = 5;
 
             postRollTextList.Add("Farmer threw the gold at you in terror and fled.");
             postRollTextList.Add("Unfortunately, some of the gold fell into the drain and got washed away..");
-            postRollTextList.Add("Gain 5 gold.");
         }
 
-        return new Vector3Int(goldToAdd, healthToAdd, 0);
+        if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
+            string postRollRewardsText = "";
+            if (moneyToAdd < 0) {
+                postRollRewardsText += "Lose " + (-moneyToAdd) + " gold. ";
+            } else if (moneyToAdd > 0) {
+                postRollRewardsText += "Gain " + moneyToAdd + " gold. ";
+            }
+            if (healthToAdd < 0) {
+                postRollRewardsText += "Lose " + (-healthToAdd) + " health. ";
+            } else if (healthToAdd > 0) {
+                postRollRewardsText += "Gain " + healthToAdd + " health. ";
+            }
+            if (diceToAdd < 0) {
+                postRollRewardsText += "Lose " + (-diceToAdd) + " dice. ";
+            } else if (diceToAdd > 0) {
+                postRollRewardsText += "Gain " + diceToAdd + " dice. ";
+            }
+            postRollTextList.Add(postRollRewardsText);
+        }
+
+        return new Vector3Int(moneyToAdd, healthToAdd, 0);
     }
 
     public override List<string> GetPostRollTextList()
