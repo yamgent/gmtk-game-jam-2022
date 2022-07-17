@@ -19,6 +19,7 @@ public class StoryImageArea : MonoBehaviour
     {
         for (int i = 0; i < images.Length; ++i)
         {
+            Debug.Log(images[i].name);
             images[i].enabled = false;
         }
     }
