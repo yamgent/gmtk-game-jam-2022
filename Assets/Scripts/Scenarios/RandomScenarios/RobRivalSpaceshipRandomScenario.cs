@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobFarmerRandomScenario : BaseScenario
+public class RobRivalSpaceshipRandomScenario : BaseScenario
 {
     public override string title { get { return "Rob Rival Spaceship"; } }
     public override string rewardsString { get { return "Gold"; } }

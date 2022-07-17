@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobFarmerRandomScenario : BaseScenario
+public class TreaasureChestRandomScenario : BaseScenario
 {
     public override string title { get { return "Found a Treasure Chest"; } }
     public override string rewardsString { get { return "Gold"; } }
