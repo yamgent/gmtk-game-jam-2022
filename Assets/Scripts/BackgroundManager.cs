@@ -78,10 +78,14 @@ public class BackgroundManager : MonoBehaviour
         {
             if (bgDescriptions[i].bgType == type)
             {
-                for (int j = 0; j < bgDescriptions[i].bgGameObjects.Count; j++)
+                int randomBgIndex = 0;
+
+                if (bgDescriptions[i].bgGameObjects.Count > 1)
                 {
-                    bgDescriptions[i].bgGameObjects[j].SetActive(true);
+                    randomBgIndex = Random.Range(0, bgDescriptions[i].bgGameObjects.Count);
                 }
+
+                bgDescriptions[i].bgGameObjects[randomBgIndex].SetActive(true);
                 return;
             }
         }
