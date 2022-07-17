@@ -26,8 +26,10 @@ public class StoryImageArea : MonoBehaviour
 
     public void Show(int index)
     {
-        Debug.Log(index + ":" + imageList[index]);
-        int imageIndex = imageList[index];
+        int imageIndex = -1;
+        if (imageList != null) {
+            imageIndex = imageList[index];
+        }
         if (imageIndex == -1) return;
         
         Hide();
