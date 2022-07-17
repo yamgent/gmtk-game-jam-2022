@@ -15,7 +15,8 @@ public class PirateVsPirateRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You are not the only pirate. Another pirate is attempting to rob you.";
+        return "You are not the only pirate. Another pirate is attempting to rob you.\n" +
+            "Make them regret their foolish decision.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

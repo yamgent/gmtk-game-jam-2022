@@ -7,7 +7,7 @@ public class MaintenanceNegligenceRandomScenario : BaseScenario
     public override string title { get { return "Maintenance Negligence"; } }
     public override string rewardsString { get { return "Gold"; } }
     public override int lowRoll { get { return 1; } }
-    public override int minSuccess { get { return 4;} }
+    public override int minSuccess { get { return 3;} }
     public override int maxSuccess { get { return 5; } }
     public override int highRoll { get { return 7;} }
 

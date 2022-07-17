@@ -15,7 +15,7 @@ public class LuckyRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You found a dice on the floor.";
+        return "It's your lucky day! You found a dice on the floor.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
