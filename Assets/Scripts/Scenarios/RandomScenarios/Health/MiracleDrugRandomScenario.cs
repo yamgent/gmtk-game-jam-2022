@@ -15,7 +15,8 @@ public class MiracleDrugRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You visit a doctor to get your wounds treated.";
+        return "You visit a doctor to get your wounds treated.\n" +
+            "The doctor offers you a miracle drug that can cure all aliments.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
