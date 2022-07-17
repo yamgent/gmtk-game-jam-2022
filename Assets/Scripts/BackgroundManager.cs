@@ -38,7 +38,7 @@ public class BackgroundManager : MonoBehaviour
         }
     }
 
-    public List<BackgroundDesc> bgDescriptions;
+    public List<BackgroundDesc> bgDescriptions = new List<BackgroundDesc>();
 
     void Start()
     {
@@ -50,7 +50,7 @@ public class BackgroundManager : MonoBehaviour
 
     void Awake()
     {
-        if (BackgroundManager.singleton)
+        if (BackgroundManager.singleton != null)
         {
             Debug.LogError("Duplicate BackgroundManager.");
             return;
@@ -59,12 +59,12 @@ public class BackgroundManager : MonoBehaviour
         BackgroundManager.singleton = this;
     }
 
-    static BackgroundManager getSingleton()
+    public static BackgroundManager GetSingleton()
     {
         return BackgroundManager.singleton;
     }
 
-    void SetBackground(BackgroundType type)
+    public void SetBackground(BackgroundType type)
     {
         for (int i = 0; i < bgDescriptions.Count; i++)
         {
@@ -85,5 +85,29 @@ public class BackgroundManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void SetStoryBackground(int storyIndex)
+    {
+        switch (storyIndex)
+        {
+            case 0:
+                SetBackground(BackgroundType.Scene1);
+                break;
+            case 1:
+                SetBackground(BackgroundType.Scene2);
+                break;
+            case 2:
+                SetBackground(BackgroundType.Scene3);
+                break;
+            default:
+                Debug.LogError("Invalid storyIndex.");
+                break;
+        }
+    }
+
+    public void SetRandomBackground()
+    {
+        SetBackground(BackgroundType.Random);
     }
 }
