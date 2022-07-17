@@ -52,8 +52,10 @@ public class QuackEncounterRandomScenario : BaseScenario
         else // Super High outcome
         {
             healthToAdd = -3;
+            moneyToAdd = 5;
 
             postRollTextList.Add("You receive treatment and got an infection.");
+            postRollTextList.Add("However, the doctor compensates you for his mistake.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {

@@ -7,8 +7,8 @@ public class MiracleDrugRandomScenario : BaseScenario
     public override string title { get { return "A Miracle Drug?"; } }
     public override string rewardsString { get { return "Health"; } }
     public override int lowRoll { get { return 1; } }
-    public override int minSuccess { get { return 5;} }
-    public override int maxSuccess { get { return 13; } }
+    public override int minSuccess { get { return 6;} }
+    public override int maxSuccess { get { return 22; } }
     public override int highRoll { get { return 99;} }
 
     private List<string> postRollTextList;
