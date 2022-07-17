@@ -51,11 +51,11 @@ public class EndGameController : MonoBehaviour
         }
         else if (Player.Instance.Gold < 200)
         {
-            scoreSummaryText.text = "It's ain't much, but it's honest work.";
+            scoreSummaryText.text = "It's ain't much, but it's \"honest\" work.";
         }
         else
         {
-            scoreSummaryText.text = "Coming back from retirement was a right choice all along.";
+            scoreSummaryText.text = "Coming out of retirement was a right choice all along.";
         }
     }
 }
