@@ -15,6 +15,42 @@ public class ScenarioController : MonoBehaviour
     public TMP_Text diceNumberText;
     public TMP_Text goldNumberText;
 
+    private List<BaseScenario> goldRandomScenarioList = new List<BaseScenario> {
+        new BountyHuntedRandomScenario(),
+        new BountyHuntingRandomScenario(),
+        new DropYourWalletRandomScenario(),
+        new GreatHeistRandomScenario(),
+        new HopelesslyInLoveRandomScenario(),
+        new MaintenanceNegligenceRandomScenario(),
+        new PickpocketRandomScenario(),
+        new PirateVsPirateRandomScenario(),
+        new RaidAsteroidRigRandomScenario(),
+        new RansomRichKidRandomScenario(),
+        new RobCleaningRobotRandomScenario(),
+        new RobFarmerRandomScenario(),
+        new RobRivalSpaceshipRandomScenario(),
+        new RobSpacePoliceRandomScenario(),
+        new RollOfTheDice2RandomScenario(),
+        new RollOfTheDiceRandomScenario(),
+        new SaboteurRandomScenario(),
+        new TreasureChestRandomScenario()
+    };
+    private List<BaseScenario> healthRandomScenarioList = new List<BaseScenario> {
+        new ArrrPiratesRandomScenario(),
+        new GetWoundsTreatedRandomScenario(),
+        new MiracleDrugRandomScenario(),
+        new PestInfestationRandomScenario(),
+        new PositivityRandomScenario(),
+        new QuackEncounterRandomScenario(),
+        new RAndRRandomScenario(),
+        new RobotAssassinRandomScenario()
+    };
+    private List<BaseScenario> diceRandomScenarioList = new List<BaseScenario> {
+        new LuckyRandomScenario(),
+        new MineDiceReservesRandomScenario(),
+        new OpenedWindowsRandomScenario(),
+    };
+
     public void Start()
     {
         IntializeScenarioCards();
