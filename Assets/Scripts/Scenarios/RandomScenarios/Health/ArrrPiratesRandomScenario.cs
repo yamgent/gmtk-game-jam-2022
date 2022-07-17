@@ -46,14 +46,14 @@ public class ArrrPiratesRandomScenario : BaseScenario
             moneyToAdd = rolledNumber * 5;
             healthToAdd = -rolledNumber;
 
-            postRollTextList.Add("You followed them to their base and ambused them. You took some damage in the process, but looted their base.");
+            postRollTextList.Add("You followed them to their base and ambushed them. You took some damage in the process, but looted their base.");
         }
         else // Super High outcome
         {
             moneyToAdd = rolledNumber * 5;
             healthToAdd = -rolledNumber;
 
-            postRollTextList.Add("You followed them to their base and ambused them. You took some damage in the process, but looted their base.");
+            postRollTextList.Add("You followed them to their base and ambushed them. You took some damage in the process, but looted their base.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
