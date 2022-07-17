@@ -56,6 +56,11 @@ public class GameController : MonoBehaviour
 
     private void setToScenario() {
         SceneManager.LoadScene("GameScene");
+        IngameMusicController music = IngameMusicController.instance;
+
+        if (music != null) {
+            music.PlayIfNotStarted();
+        }
     }
 
     private void setToStory() {

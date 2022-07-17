@@ -22,7 +22,7 @@ public class IngameMusicController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void PlayIfNotStarted()
+    public void PlayIfNotStarted()
     {
         if (!ingameMusic.isPlaying)
         {
@@ -30,7 +30,7 @@ public class IngameMusicController : MonoBehaviour
         }
     }
 
-    void StopMusic()
+    public void StopMusic()
     {
         ingameMusic.Stop();
     }
