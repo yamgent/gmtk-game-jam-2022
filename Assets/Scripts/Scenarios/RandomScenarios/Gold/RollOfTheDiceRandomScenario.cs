@@ -7,7 +7,7 @@ public class RollOfTheDiceRandomScenario : BaseScenario
     public override string title { get { return "Roll of the Dice"; } }
     public override string rewardsString { get { return "Gold"; } }
     public override int lowRoll { get { return 1; } }
-    public override int minSuccess { get { return 6;} }
+    public override int minSuccess { get { return 5;} }
     public override int maxSuccess { get { return 7; } }
     public override int highRoll { get { return 99;} }
 
