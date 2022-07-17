@@ -31,7 +31,7 @@ public class RobFarmerRandomScenario : BaseScenario
             healthToAdd = -1;
 
             postRollTextList.Add("Farmer attacked you with his rake. You beat him up and took his wallet.");
-            postRollTextList.Add("Lose 1 Health. Gain 5 gold.");
+            postRollTextList.Add("Lose 1 health. Gain 5 gold.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
