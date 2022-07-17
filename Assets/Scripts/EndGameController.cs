@@ -12,15 +12,18 @@ public class EndGameController : MonoBehaviour
     public TMP_Text scoreSummaryText;
 
     public GameObject noDiceBackground;
+    public GameObject noHealthBackground;
 
     // Start is called before the first frame update
     void Start()
     {
         noDiceBackground.SetActive(false);
+        noHealthBackground.SetActive(false);
 
         if (Player.Instance.Health == 0)
         {
             titleText.text = "You bled to death.";
+            noHealthBackground.SetActive(true);
         }
         else if (Player.Instance.Dice == 0)
         {
