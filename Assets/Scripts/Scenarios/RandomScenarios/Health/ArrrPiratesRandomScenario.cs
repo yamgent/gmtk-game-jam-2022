@@ -8,7 +8,7 @@ public class ArrrPiratesRandomScenario : BaseScenario
     public override string rewardsString { get { return "Health"; } }
     public override int lowRoll { get { return 1; } }
     public override int minSuccess { get { return 3;} }
-    public override int maxSuccess { get { return 4; } }
+    public override int maxSuccess { get { return 5; } }
     public override int highRoll { get { return 99;} }
 
     private List<string> postRollTextList;
