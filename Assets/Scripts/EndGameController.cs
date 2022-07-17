@@ -15,7 +15,7 @@ public class EndGameController : MonoBehaviour
         } else if (Player.Instance.Dice == 0) {
             titleText.text = "You have no more die left.";
         } else {
-            titleText.text = "You won!";
+            titleText.text = "You conquered the galaxy. You are the strongest and richest pirate ever lived.";
         }
     }
 }
