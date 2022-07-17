@@ -12,6 +12,7 @@ public class ScenarioController : MonoBehaviour
 
     public ScenarioOverlay scenarioOverlay;
     public DialogueAnimation dialogueAnimation;
+    public BackgroundManager backgroundManager;
     public GameObject dialogArea;
 
     public TMP_Text healthNumberText;
@@ -101,7 +102,7 @@ public class ScenarioController : MonoBehaviour
         scenarioCard2.Hide();
 
         scenarioStoryCard.SetScenarioText(scenario);
-        BackgroundManager.GetSingleton().SetStoryBackground(storyIndex);
+        backgroundManager.SetStoryBackground(storyIndex);
     }
 
     private void LoadRandomScenario()
@@ -111,7 +112,7 @@ public class ScenarioController : MonoBehaviour
         scenarioCard2.Show();
 
         GenerateRandomScenario();
-        BackgroundManager.GetSingleton().SetRandomBackground();
+        backgroundManager.SetRandomBackground();
     }
 
     private void GenerateRandomScenario()
