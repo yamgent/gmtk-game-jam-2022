@@ -49,6 +49,8 @@ public class ScenarioController : MonoBehaviour
         new LuckyRandomScenario(),
         new MineDiceReservesRandomScenario(),
         new OpenedWindowsRandomScenario(),
+        new DiceCloningMachineRandomScenario(),
+        new UndergroundCasinoRandomScenario()
     };
 
     public void Start()
@@ -141,7 +143,9 @@ public class ScenarioController : MonoBehaviour
         Player.Instance.Health += result.y;
         Player.Instance.Dice += result.z;
 
-        dialogueAnimation.SetDialogue(scenario.GetPostRollTextList());
+        List<string> postRollTextList = new List<string> { "[Rolled " + finalRoll + "]" };
+        postRollTextList.AddRange(scenario.GetPostRollTextList());
+        dialogueAnimation.SetDialogue(postRollTextList);
         UpdateResourcesUI();
     }
 }
