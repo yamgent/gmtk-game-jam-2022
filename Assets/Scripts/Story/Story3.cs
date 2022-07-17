@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Story3 : BaseStory
 {
-    public override List<string> GetStoryTextList() 
+    public override BackgroundManager.BackgroundType GetBackgroundType()
+    {
+        return BackgroundManager.BackgroundType.Scene3;
+    }
+
+    public override List<string> GetStoryTextList()
     {
         return new List<string> {
             "In a random shop somewhere in the galaxy..",

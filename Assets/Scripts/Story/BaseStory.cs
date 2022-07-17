@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class BaseStory
 {
     public abstract List<string> GetStoryTextList();
+    public abstract BackgroundManager.BackgroundType GetBackgroundType();
 }

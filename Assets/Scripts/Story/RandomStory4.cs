@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class RandomStory4 : BaseStory
 {
-    public override List<string> GetStoryTextList() 
+    public override BackgroundManager.BackgroundType GetBackgroundType()
+    {
+        return BackgroundManager.BackgroundType.Random;
+    }
+
+    public override List<string> GetStoryTextList()
     {
         return new List<string> {
             "Your travels have taken a toll on the ship.",
