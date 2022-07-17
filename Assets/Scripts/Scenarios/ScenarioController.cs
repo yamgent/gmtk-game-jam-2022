@@ -49,6 +49,8 @@ public class ScenarioController : MonoBehaviour
         new LuckyRandomScenario(),
         new MineDiceReservesRandomScenario(),
         new OpenedWindowsRandomScenario(),
+        new DiceCloningMachineRandomScenario(),
+        new UndergroundCasinoRandomScenario()
     };
 
     public void Start()
