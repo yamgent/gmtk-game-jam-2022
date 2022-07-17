@@ -10,7 +10,7 @@ public class ScenarioOverlay : MonoBehaviour
 
     public RollVisual rollVisual;
     public DiceArea diceArea;
-        
+
     private ScenarioController parent;
     private BaseScenario scenario;
 
@@ -36,6 +36,12 @@ public class ScenarioOverlay : MonoBehaviour
     public void RollDice()
     {
         parent.ResolveScenario(scenario, diceArea.numDice);
+        diceArea.PlayDiceAnimation();
+    }
+
+    public void SetRollValue(int index, int value)
+    {
+        diceArea.SetRollValue(index, value);
     }
 
     public void NumDiceChanged()

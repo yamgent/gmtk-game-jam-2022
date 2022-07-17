@@ -5,28 +5,67 @@ using TMPro;
 
 public class DiceArea : MonoBehaviour
 {
-    public TMP_Text numDiceText;
-    public int maxDice = 4;
+    public Dice[] dice;
     public int numDice = 1;
+
+    private int[] rollValues;
 
     public void ResetDice()
     {
         numDice = 1;
-        numDiceText.text = numDice.ToString();
+        rollValues = new int[dice.Length];
+
+        ShowDice();
+    }
+
+    public void PlayDiceAnimation()
+    {
+        float startDelay = 0f;
+
+        for (int i = 0; i < numDice; ++i)
+        {
+            StartCoroutine(StartAnimation(startDelay, i));
+            startDelay += 0.1f;
+        }
+    }
+
+    private IEnumerator StartAnimation(float startDelay, int index)
+    {
+        yield return new WaitForSeconds(startDelay);
+
+        dice[index].PlayAnimation(rollValues[index]);
     }
     
     public void IncreaseDice()
     {
         numDice =
             Mathf.Min(
-              Mathf.Min(Mathf.Max(1, Player.Instance.Dice), maxDice),
+              Mathf.Min(Mathf.Max(1, Player.Instance.Dice), dice.Length),
               numDice + 1);
-        numDiceText.text = numDice.ToString();
+        ShowDice();
+    }
+
+    public void SetRollValue(int index, int value)
+    {
+        rollValues[index] = value;
     }
 
     public void DecreaseDice()
     {
         numDice = Mathf.Max(1, numDice - 1);
-        numDiceText.text = numDice.ToString();
+        ShowDice();
+    }
+
+    private void ShowDice()
+    {
+        for (int i = 0; i < dice.Length; ++i)
+        {
+            dice[i].Hide();
+        }
+
+        for (int i = 0; i < numDice; ++i)
+        {
+            dice[i].Show();
+        }
     }
 }

@@ -130,7 +130,9 @@ public class ScenarioController : MonoBehaviour
         int finalRoll = 0;
         for (int i = 0; i < numDice; ++i)
         {
-            finalRoll += Random.Range(1, 7);
+            int roll = Random.Range(1, 7);
+            finalRoll += roll;
+            scenarioOverlay.SetRollValue(i, roll);
         }
 
         Vector3Int result = scenario.GetRollResult(finalRoll);
