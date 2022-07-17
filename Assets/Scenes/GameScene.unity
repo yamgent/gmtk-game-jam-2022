@@ -483,6 +483,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164856981}
     m_Modifications:
+    - target: {fileID: 993192874703222810, guid: 293f84d590062624f9e1d9cbeb84657c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1612270336}
+    - target: {fileID: 993192874703222810, guid: 293f84d590062624f9e1d9cbeb84657c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideScenarioOverlay
+      objectReference: {fileID: 0}
     - target: {fileID: 993192875566607417, guid: 293f84d590062624f9e1d9cbeb84657c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
