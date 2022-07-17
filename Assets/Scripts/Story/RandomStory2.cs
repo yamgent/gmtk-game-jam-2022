@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class RandomStory2 : BaseStory
 {
-    public override BackgroundManager.BackgroundType GetBackgroundType()
-    {
-        return BackgroundManager.BackgroundType.Random;
-    }
-
-    public override List<string> GetStoryTextList()
+    public override List<string> GetStoryTextList() 
     {
         return new List<string> {
            "After wandering for a long time, you stumble upon a small village."
