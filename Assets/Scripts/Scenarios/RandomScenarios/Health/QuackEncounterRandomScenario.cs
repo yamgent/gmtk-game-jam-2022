@@ -15,7 +15,8 @@ public class QuackEncounterRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You visit a doctor to get your wounds treated.";
+        return "You visit a doctor to get your wounds treated.\n" +
+            "But this doctor seems a little strange..";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

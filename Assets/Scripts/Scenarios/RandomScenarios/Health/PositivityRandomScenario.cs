@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PositivityRandomScenario : BaseScenario
 {
-    public override string title { get { return "Positivity"; } }
+    public override string title { get { return "Space Positivity Day"; } }
     public override string rewardsString { get { return "Health"; } }
     public override int lowRoll { get { return 1; } }
     public override int minSuccess { get { return 5;} }
@@ -15,7 +15,8 @@ public class PositivityRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You are feeling good today";
+        return "Today is Space Positivity Day!\n" +
+            "Time to take a break from all the robbing for your mental health.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

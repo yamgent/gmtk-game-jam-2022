@@ -15,7 +15,7 @@ public class RAndRRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "You visit a hot spring to soak your weary body.";
+        return "There is a hot spring nearby. You can pay a visit to soak your weary body.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)

@@ -15,7 +15,8 @@ public class PestInfestationRandomScenario : BaseScenario
 
     public override string GetDescription()
     {
-        return "Perhaps you have forgotten to clean your spaceship amidst your busy life.. cockroaches have made a nest in your spaceship.";
+        return "Perhaps you have forgotten to clean your spaceship amidst your busy life.. cockroaches have made a nest in your spaceship.\n" +
+            "You need to get rid of them before they contaminate the pantry.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
