@@ -5,6 +5,7 @@ using UnityEngine;
 public class StoryController : MonoBehaviour
 {
     public DialogueAnimation dialogueAnimation;
+    public StoryImageArea storyImageArea;
 
     private BaseStory currentStory;
     private List<BaseStory> randomStoryList = new List<BaseStory> {
@@ -34,7 +35,13 @@ public class StoryController : MonoBehaviour
     public void LoadStory(BaseStory story) 
     {
         currentStory = story;
+        dialogueAnimation.OnAnimatedTextCompleted += setAnimatedTextCompleted;
+        storyImageArea.SetImageList(story.GetStoryImageList());
         dialogueAnimation.SetDialogue(story.GetStoryTextList());
+    }
+
+    private void setAnimatedTextCompleted() {
+        storyImageArea.setAnimatedTextCompleted();
     }
 
 }

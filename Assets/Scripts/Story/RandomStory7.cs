@@ -10,4 +10,8 @@ public class RandomStory7 : BaseStory
             "You got sucked into a wormhole and appeared on an unknown planet."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

@@ -11,4 +11,8 @@ public class RandomStory6 : BaseStory
             "You travelled all the way out here to find and rob them."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

@@ -11,4 +11,8 @@ public class RandomStory5 : BaseStory
             "You are hopelessly lost in space."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

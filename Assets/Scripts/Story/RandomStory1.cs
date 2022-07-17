@@ -11,4 +11,8 @@ public class RandomStory1 : BaseStory
             "You move to a nearby planet in search of gold."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

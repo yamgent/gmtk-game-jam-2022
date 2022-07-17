@@ -10,4 +10,8 @@ public class RandomStory2 : BaseStory
            "After wandering for a long time, you stumble upon a small village."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

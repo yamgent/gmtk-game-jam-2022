@@ -15,4 +15,8 @@ public class Story1 : BaseStory
             "(Sounds of gunfire)"
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return new List<int> { -1, -1, -1, 0, -1, 1 };
+    }
 }

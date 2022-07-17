@@ -10,7 +10,9 @@ public class DialogueAnimation : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI displayedTextMesh;
-    [SerializeField] private float delayBetweenWord = 0.5f;            
+    [SerializeField] private float delayBetweenWord = 0.5f;    
+
+    public StoryImageArea storyImageArea;        
 
     private string textToAnimate;
     private string currentText;        
@@ -60,6 +62,10 @@ public class DialogueAnimation : MonoBehaviour
             {
                 dialgueAnimationCompleted = false;
                 AnimateText(0.2f, dialogueList[currentTextIndex]);
+                if (storyImageArea != null)
+                {
+                    storyImageArea.Show(currentTextIndex);
+                }
                 currentTextIndex++;
             }
             else
@@ -114,5 +120,9 @@ public class DialogueAnimation : MonoBehaviour
         StopCoroutine(coroutine);
         displayedTextMesh.text = textToAnimate;
         dialgueAnimationCompleted = true;
+        if (OnAnimatedTextCompleted != null)
+        {
+            OnAnimatedTextCompleted();
+        }
     }
 }

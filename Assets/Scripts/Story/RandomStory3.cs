@@ -11,4 +11,8 @@ public class RandomStory3 : BaseStory
             "You quickly leave the area, without anyone noticing."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

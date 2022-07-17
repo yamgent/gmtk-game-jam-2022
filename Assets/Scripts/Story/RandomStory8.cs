@@ -10,4 +10,8 @@ public class RandomStory8 : BaseStory
             "You stop by a nearby trading hub to stock up on supplies."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

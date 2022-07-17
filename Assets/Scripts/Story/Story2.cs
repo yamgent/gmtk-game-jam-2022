@@ -13,4 +13,8 @@ public class Story2 : BaseStory
             "Dice are, without a doubt, the most important item for a pirate."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

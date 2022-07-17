@@ -13,4 +13,8 @@ public class Story3 : BaseStory
             "(Sounds of gunfire)"
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }

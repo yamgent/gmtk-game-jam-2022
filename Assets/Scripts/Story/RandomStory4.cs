@@ -11,4 +11,8 @@ public class RandomStory4 : BaseStory
             "You stop by the nearest city for repairs."
         };
     }
+
+    public override List<int> GetStoryImageList() {
+        return null;
+    }
 }
