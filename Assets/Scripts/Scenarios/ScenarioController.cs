@@ -57,10 +57,10 @@ public class ScenarioController : MonoBehaviour
     {
         IntializeScenarioCards();
         UpdateResourcesUI();
-        
+
         if (GameController.Instance.isStoryScenario)
         {
-            LoadStoryScenario(GameController.Instance.scenarioList[GameController.Instance.index]);
+            LoadStoryScenario(GameController.Instance.scenarioList[GameController.Instance.index], GameController.Instance.index);
             GameController.Instance.isStoryScenario = false;
         }
         else
@@ -85,13 +85,14 @@ public class ScenarioController : MonoBehaviour
         scenarioOverlay.SetScenarioController(this);
     }
 
-    private void LoadStoryScenario(BaseScenario scenario)
+    private void LoadStoryScenario(BaseScenario scenario, int storyIndex)
     {
         scenarioStoryCard.Show();
         scenarioCard1.Hide();
         scenarioCard2.Hide();
 
         scenarioStoryCard.SetScenarioText(scenario);
+        BackgroundManager.GetSingleton().SetStoryBackground(storyIndex);
     }
 
     private void LoadRandomScenario()
@@ -101,6 +102,7 @@ public class ScenarioController : MonoBehaviour
         scenarioCard2.Show();
 
         GenerateRandomScenario();
+        BackgroundManager.GetSingleton().SetRandomBackground();
     }
 
     private void GenerateRandomScenario()
@@ -128,6 +130,12 @@ public class ScenarioController : MonoBehaviour
 
     public void ResolveScenario(BaseScenario scenario, int numDice)
     {
+        if (numDice == 0) {
+            // The player clicked "Roll" with no dice.
+            GameController.Instance.StartLoseScene();
+            return;
+        }
+
         Player.Instance.Dice -= numDice;
         int finalRoll = 0;
         for (int i = 0; i < numDice; ++i)
