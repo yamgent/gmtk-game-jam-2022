@@ -12,7 +12,8 @@ public class DialogueAnimation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayedTextMesh;
     [SerializeField] private float delayBetweenWord = 0.5f;    
 
-    public StoryImageArea storyImageArea;        
+    public DialogueNext dialogueNext;
+    public StoryImageArea storyImageArea;  
 
     private string textToAnimate;
     private string currentText;        
@@ -56,6 +57,8 @@ public class DialogueAnimation : MonoBehaviour
 
     private void Next() 
     {
+        dialogueNext.Hide();
+
         if (dialgueAnimationCompleted) 
         {
             if (currentTextIndex < dialogueList.Count) 

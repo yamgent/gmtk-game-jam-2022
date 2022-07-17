@@ -9,8 +9,11 @@ public class ScenarioController : MonoBehaviour
     public ScenarioCard scenarioStoryCard;
     public ScenarioCard scenarioCard1;
     public ScenarioCard scenarioCard2;
+
     public ScenarioOverlay scenarioOverlay;
     public DialogueAnimation dialogueAnimation;
+    public GameObject dialogArea;
+
     public TMP_Text healthNumberText;
     public TMP_Text diceNumberText;
     public TMP_Text goldNumberText;
@@ -58,6 +61,7 @@ public class ScenarioController : MonoBehaviour
     {
         IntializeScenarioCards();
         UpdateResourcesUI();
+        dialogArea.SetActive(false);
 
         if (GameController.Instance.isStoryScenario)
         {
@@ -136,6 +140,8 @@ public class ScenarioController : MonoBehaviour
             GameController.Instance.StartLoseScene();
             return;
         }
+
+        dialogArea.SetActive(true);
 
         Player.Instance.Dice -= numDice;
         int finalRoll = 0;
