@@ -6,7 +6,7 @@ public class DiceCloningMachineRandomScenario : BaseScenario
 {
     public override string title { get { return "Dice Cloning Machine"; } }
     public override string rewardsString { get { return "Dice"; } }
-    public override int lowRoll { get { return 1; } }
+    public override int lowRoll { get { return 3; } }
     public override int minSuccess { get { return 7;} }
     public override int maxSuccess { get { return 21; } }
     public override int highRoll { get { return 25;} }
@@ -27,7 +27,9 @@ public class DiceCloningMachineRandomScenario : BaseScenario
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            // Not possible.
+            healthToAdd = -3;
+
+            postRollTextList.Add("The machine explodes as soon as you put in your dice.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
@@ -48,10 +50,10 @@ public class DiceCloningMachineRandomScenario : BaseScenario
         }
         else // Super High outcome
         {
-            diceToAdd = 4;
+            diceToAdd = 2;
 
             postRollTextList.Add("The machine rocked back and forth.. and something seems stuck. A few dice rolled out.");
-            postRollTextList.Add("Oh well, at least I got my dice back.");
+            postRollTextList.Add("Oh well, at least I got some of my dice back.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {

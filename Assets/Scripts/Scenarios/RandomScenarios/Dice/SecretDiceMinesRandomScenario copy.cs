@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuackEncounterRandomScenario : BaseScenario
+public class SecretDiceMinesRandomScenario : BaseScenario
 {
-    public override string title { get { return "A Quack Encounter"; } }
-    public override string rewardsString { get { return "Health"; } }
-    public override int lowRoll { get { return 1; } }
-    public override int minSuccess { get { return 2;} }
-    public override int maxSuccess { get { return 6; } }
-    public override int highRoll { get { return 99;} }
+    public override string title { get { return "Mine Dice Reserves"; } }
+    public override string rewardsString { get { return "Dice"; } }
+    public override int lowRoll { get { return 12; } }
+    public override int minSuccess { get { return 14;} }
+    public override int maxSuccess { get { return 16; } }
+    public override int highRoll { get { return 18;} }
 
     private List<string> postRollTextList;
 
     public override string GetDescription()
     {
-        return "You visit a doctor to get your wounds treated.\n" +
-            "But this doctor seems a little strange..";
+        return "You found a secret cave that could be full of dice. Time to get digging.";
     }
 
     public override Vector3Int GetRollResult(int rolledNumber)
@@ -28,32 +27,34 @@ public class QuackEncounterRandomScenario : BaseScenario
 
         if (rolledNumber >= 1 && rolledNumber < lowRoll) // Super Low outcome
         {
-            // Not possible.
+            postRollTextList.Add("The dice you found were too old to be used.");
         }
         else if (rolledNumber >= lowRoll && rolledNumber < minSuccess) // Low outcome
         {
-            healthToAdd = -3;
+            diceToAdd = 3;
 
-            postRollTextList.Add("You receive treatment and got an infection.");
+            postRollTextList.Add("After hours of back-breaking digging, you found a few dice.");
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            healthToAdd = 1;
+            diceToAdd = 7;
 
-            postRollTextList.Add("You realise the doctor was a quack and left before receiving treatment.");
-            postRollTextList.Add("You feel smart and improved your mental health.");
+            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
-            healthToAdd = -3;
+            diceToAdd = 3;
 
-            postRollTextList.Add("You receive treatment and got an infection.");
+            postRollTextList.Add("The tunnel ahead collapsed infront of you. There is no way to dig for more dice.");
+            postRollTextList.Add("Fortunately, you already found enough dice to make it a fruitful endeavour.");
         }
         else // Super High outcome
         {
-            healthToAdd = -3;
+            healthToAdd = -10;
 
-            postRollTextList.Add("You receive treatment and got an infection.");
+            postRollTextList.Add("Your intuition was spot on, and you found a lot of dice!");
+            postRollTextList.Add("But the tunnel collapsed above you.");
+            postRollTextList.Add("You could not retrieve any dice, and got hurt in the process.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {

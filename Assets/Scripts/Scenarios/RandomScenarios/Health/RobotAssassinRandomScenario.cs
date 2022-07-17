@@ -5,7 +5,7 @@ using UnityEngine;
 public class RobotAssassinRandomScenario : BaseScenario
 {
     public override string title { get { return "Robot Assassin"; } }
-    public override string rewardsString { get { return "Health"; } }
+    public override string rewardsString { get { return "Dice"; } }
     public override int lowRoll { get { return 3; } }
     public override int minSuccess { get { return 10;} }
     public override int maxSuccess { get { return 12; } }

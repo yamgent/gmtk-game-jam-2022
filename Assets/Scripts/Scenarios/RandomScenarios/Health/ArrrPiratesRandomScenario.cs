@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ArrrPiratesRandomScenario : BaseScenario
 {
-    public override string title { get { return "R & R"; } }
-    public override string rewardsString { get { return "Health"; } }
+    public override string title { get { return "Arrr pirates Spotted"; } }
+    public override string rewardsString { get { return "Gold"; } }
     public override int lowRoll { get { return 1; } }
     public override int minSuccess { get { return 3;} }
     public override int maxSuccess { get { return 5; } }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PestInfestationRandomScenario : BaseScenario
 {
     public override string title { get { return "Pest Infestation"; } }
-    public override string rewardsString { get { return "Health"; } }
+    public override string rewardsString { get { return "Dice"; } }
     public override int lowRoll { get { return 1; } }
     public override int minSuccess { get { return 2;} }
     public override int maxSuccess { get { return 6; } }
@@ -38,19 +38,21 @@ public class PestInfestationRandomScenario : BaseScenario
         }
         else if (rolledNumber >= minSuccess && rolledNumber < maxSuccess) // Success outcome
         {
-            postRollTextList.Add("You got rid of all the pest, but the pesticide is making you sick.");
+            diceToAdd = 2;
+
+            postRollTextList.Add("You got rid of all the pests, and even found some dice while hunting them!");
         }
         else if (rolledNumber >= maxSuccess && rolledNumber < highRoll) // High outcome
         {
             healthToAdd = -3;
 
-            postRollTextList.Add("You got rid of all the pest, but the pesticide is making you sick.");
+            postRollTextList.Add("You got rid of all the pests, but the pesticide is making you sick.");
         }
         else // Super High outcome
         {
             healthToAdd = -3;
 
-            postRollTextList.Add("You got rid of all the pest, but the pesticide is making you sick.");
+            postRollTextList.Add("You got rid of all the pests, but the pesticide is making you sick.");
         }
 
         if (moneyToAdd != 0 || healthToAdd != 0 || diceToAdd != 0) {
